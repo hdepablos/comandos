@@ -13,7 +13,7 @@ En la ruta principal del proyecto
         git diff
 
     Si es el último commit y se te ha olvidado incluir un file puedes ejecutar
-        git commit --amen
+        git commit --amend
 
     Deshacer los cambios en un file, siempre y cuando no este en el stage área
         git checkout -- namefile
@@ -206,6 +206,16 @@ En la ruta principal del proyecto
     
     Mostrar los commit despúes de cierta fecha
         git lodag --since=2019-02-01
+    
+    Para crear el file gitignore, 
+        touch .gitignore
+
+        Recomendación:            
+            /node_modules
+            /public/storage
+            /storage/*.key
+            /vendor
+            .env 
 
     =============================================================================================
     =============================================================================================
