@@ -166,7 +166,7 @@ En la ruta principal del proyecto
 
         Establecer el usuario
             Local
-                git config user.name "Héctor Depablos"
+                git config user.name "hdepablos"
 
             Global
                 git config --global user.name "hdepablos"
@@ -176,6 +176,15 @@ En la ruta principal del proyecto
                 git config user.email "email@example.com"
             Global
                 git config --global user.email "email@example.com"
+
+        Establecer el password
+            Local
+                git config user.password "xxx"
+            Global
+                git config --global user.password "xxx"
+
+        Eliminar un dato en el lista
+            git config --unset user.password
 
     Add repository remote
         git remote add origin https://github.com/hdepablos/comandos-git.git
