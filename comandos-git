@@ -162,6 +162,49 @@ En la ruta principal del proyecto
     Add repository remote
         git remote add origin https://github.com/hdepablos/comandos-git.git
 
+    Ver la ruta del repository 
+        git remote -v
+
     Para subir al servidor
         git push origin master
+
+    Descargar un proyecto de la nube
+        git clone https://github.com/hdepablos/comandos-git.git
+
+    Actualizar el proyecto local con el de la nube
+        git pull origin master
+
+    Mostrar all branch
+        git branch --all
+    
+    Mostrar los commit despúes de cierta fecha
+        git lodag --since=2019-02-01
+
+    ==============================================================
+    ==============================================================    
+    Nota: Solo aplicar en local
+
+    Para unir varios commit en uno solo 
+        git rebase -i HEAD~4
+
+        Estado original:
+            pick hash
+            pick hash
+            pick hash
+            pick hash
+
+        Modificar a:
+            pick hash
+            squash hash
+            squash hash
+            squash hash
+
+        Automaticamente colocar el mensaje para ejecutar el commit
+        
+
+
+
+        
+    
+
     
