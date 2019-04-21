@@ -1,0 +1,167 @@
+En la ruta principal del proyecto
+    
+    Inicializar el repositorio
+        git init
+
+    Agregar todos los archivos al stage
+        git add .
+
+    Ejecutar commit
+        git commit -m "descripcion de commit"
+
+    Cuando se realiza una modificación ver los cambios
+        git diff
+
+    Si es el último commit y se te ha olvidado incluir un file puedes ejecutar
+        git commit --amen
+
+    Deshacer los cambios en un file, siempre y cuando no este en el stage área
+        git checkout -- namefile
+
+        Pero si esta en el stage área debemos ejecutar
+            git reset HEAD documentacion
+                Y posteriormente
+                    git checkout -- namefile
+
+    Agregar un file al stage área
+        git add namefile
+
+    Ver log
+        git log --oneline
+    
+    Eliminar un commit, mantiene los cambios en el stage
+        git reset 45f73af
+
+    Eliminar un commit, y a la vez elimina los cambios en el stage
+        git reset --hard 45f73af 
+    
+    Eliminar un commit y dejar los cambios en el stage
+        git reset --soft 45f73af
+
+    Diferencias entre dos commit
+        git diff 45f73af 05a86cfgit 
+
+    Log detalleado decorate
+        git log --oneline --decorate
+
+    Revertir cambios de un commit sin necesidad de eliminar un commit
+        git revert 45f73af
+            Y te activa para que hagas un commit
+
+    Revertir mas de dos commit.
+        git revert --no-commit HEAD
+        git revert --no-commit HEAD~1
+        git revert --continue
+
+    Crear ramas del proyecto que esta montado actualmente
+        git branch name
+
+    Cambiar de rama
+        git checkout namerama
+
+    Lista las ramas
+        git branch
+
+    Crear rama y automaticamente dirigirse a ella
+        git checkout -b namerama
+
+    Cambiar el nombre de la rama
+        git branch -m nameoriginal namenew
+    
+    Eliminar rama 
+        git branch -d namerama
+
+    Eliminar una rama force
+        git branch -D namerama
+
+    Lista de comandos con branch
+        git branch -h
+    
+    Liatar all los commit
+        git log --oneline --decorate --all
+        git log --oneline --decorate --all --graph
+    
+    Para fusionar las ramas nos ubicamos en la rama destino
+        git merge namerama
+        
+    Crear alias
+        git config --global alias.lodag 'log --oneline --decorate --all --graph'
+        git config --global alias.unstage 'reset HEAD --'
+        git config --global alias.lod '--oneline --decorate --color'
+
+    Listar alias que concidan con
+        git config --global --get-regexp alias
+    
+    Eliminar un alias
+        git config --global --unset alias.lod
+
+    Abortar el intento de merge
+        git merge --abort
+
+    Crear un tag en el estado actual
+        git tag v0.2.0
+
+    Crear un tag con un hash anterior
+        git tag v0.1.0 45f73af
+    
+    Dirigirme a un tag 
+        git checkout v0.1.0
+    
+    Listar los tag 
+        git tag
+    
+    Listar comandos para el tag
+        git tag -h
+    
+    Eliminar un tag
+        git tag -d v0.1.0
+
+    En caso de que existan muchos tag se pueden filtrar
+        git tag -l "v0.*.0"
+
+    Para crear un tag con anotaciones
+        git tag -a v0.1.0
+            Aqui de escribe con detalle las características del tag (Autor, porque, que, entre otros)
+
+    Mostrar información del tag Auditoria
+        git show v0.1.0
+    
+    Auditoria master 
+        git show master
+    
+    Auditoria de un commit
+        git show 45f73af
+
+    Cambiar de rama cuando aún tienes cambios en el stage, recomendación colocarle una descripción
+        git stash
+    
+    Listar los stash
+        git stash list
+    
+    Listar los comandos para el stash
+        git stash -h
+    
+    Restaurar los cambios en la rama la cual se estaba trabajando despúes de un stash
+        git stash apply
+            Lo mantiene en la lista de los stash 
+        git stash pop
+            Lo elimina de la lista de los stash
+
+    Para eliminar un stash
+        git stash drop 
+    
+    Colocarle una descripción al stash
+        git stash save "Descripción del stash"
+
+    Detalle del stash
+        git stash show [stash]
+    
+        selección de un stash
+            git stash show stash@\{0\}    
+    
+    Add repository remote
+        git remote add origin https://github.com/hdepablos/comandos-git.git
+
+    Para subir al servidor
+        git push origin master
+    
