@@ -159,6 +159,24 @@ En la ruta principal del proyecto
         selección de un stash
             git stash show stash@\{0\}    
     
+    =============================================================================================
+    =============================================================================================
+    Listar la configuración local
+        git config --list
+
+        Establecer el usuario
+            Local
+                git config user.name "Héctor Depablos"
+
+            Global
+                git config --global user.name "hdepablos"
+
+        Establecer el email
+            Local
+                git config user.email "email@example.com"
+            Global
+                git config --global user.email "email@example.com"
+
     Add repository remote
         git remote add origin https://github.com/hdepablos/comandos-git.git
 
@@ -180,8 +198,8 @@ En la ruta principal del proyecto
     Mostrar los commit despúes de cierta fecha
         git lodag --since=2019-02-01
 
-    ==============================================================
-    ==============================================================    
+    =============================================================================================
+    =============================================================================================
     Nota: Solo aplicar en local
 
     Para unir varios commit en uno solo 
@@ -200,7 +218,7 @@ En la ruta principal del proyecto
             squash hash
 
         Automaticamente colocar el mensaje para ejecutar el commit
-        
+
 
 
 
