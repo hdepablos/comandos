@@ -12,8 +12,14 @@ En la ruta principal del proyecto
     Cuando se realiza una modificación ver los cambios
         git diff
 
-    Si es el último commit y se te ha olvidado incluir un file puedes ejecutar
+    Si es el último commit  puedes editar el mensaje del commit y a la vez incluir, excluir algun file
         git commit --amend
+
+    Si no es el último commit y quieres modificar solo el mensje del commit 
+        git rebase -i HEAD~4
+            Cambiar pick por reword. Guardar el file, y reescribir el mensaje. y guardar file
+            Para forzar la subida al repositorio
+                git push --force origin master
 
     Deshacer los cambios en un file, siempre y cuando no este en el stage área
         git checkout -- namefile
