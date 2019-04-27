@@ -195,9 +195,13 @@ En la ruta principal del proyecto
     Add repository remote
         git remote add origin https://github.com/hdepablos/comandos-git.git
 
-    Ver la ruta del repository 
+    Ver la ruta del repository activo
         git remote -v
-
+        
+    Cambiar el repository
+        git remote set-url origin https://github.com/hdepablos/mongodb.git
+        git remote -v
+        
     Para subir al servidor
         git push origin master
 
