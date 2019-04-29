@@ -153,8 +153,11 @@ En la ruta principal del proyecto
         git stash pop
             Lo elimina de la lista de los stash
 
-    Para eliminar un stash
+    Para eliminar un stash el último
         git stash drop 
+        
+    Para eliminar todos los stash
+        git stash clear
     
     Colocarle una descripción al stash
         git stash save "Descripción del stash"
