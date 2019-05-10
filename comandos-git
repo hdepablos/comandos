@@ -202,7 +202,7 @@ En la ruta principal del proyecto
         git remote -v
         
     Cambiar el repository
-        git remote set-url origin https://github.com/hdepablos/mongodb.git
+        git remote set-url origin https://github.com/hdepablos/xxx.git
         git remote -v
         
     Para subir al servidor
