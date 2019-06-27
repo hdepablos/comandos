@@ -144,6 +144,7 @@ En la ruta principal del proyecto
 
     Cambiar de rama cuando aún tienes cambios en el stage, recomendación colocarle una descripción
         git stash
+        git stash save "Descripción del stash"
     
     Listar los stash
         git stash list
@@ -163,9 +164,6 @@ En la ruta principal del proyecto
     Para eliminar todos los stash
         git stash clear
     
-    Colocarle una descripción al stash
-        git stash save "Descripción del stash"
-
     Detalle del stash
         git stash show [stash]
     
