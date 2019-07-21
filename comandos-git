@@ -2,6 +2,9 @@ En la ruta principal del proyecto
     
     Inicializar el repositorio
         git init
+    
+    Eliminar el seguimiento
+        rm -rf .git
 
     Agregar todos los archivos al stage
         git add .
