@@ -259,9 +259,11 @@ En la ruta principal del proyecto
         Automaticamente colocar el mensaje para ejecutar el commit
 
 
-
-
+    =============================================================================================
+    =============================================================================================
+    Visualizar file:
+        git show <hash-commit>:<url-archivo>
         
-    
+        git log --follow -p -- /var/www/html/asback/resources/views/vendor/adminlte/layouts/partials/rolsidebar/_admin.blade.php
 
     
