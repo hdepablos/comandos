@@ -8,6 +8,11 @@ En la ruta principal del proyecto
 
     Agregar todos los archivos al stage
         git add .
+        
+        Eliminarlo del stage
+        git clean -f
+        Eliminar los archivos sin seguimiento
+        git clean -f -d
 
     Ejecutar commit
         git commit -m "descripcion de commit"
