@@ -88,6 +88,10 @@ En la ruta principal del proyecto
     
     Eliminar rama 
         git branch -d namerama
+        git branch -D namerama
+        
+    Eliminar rama remota
+        git push origin --delete <NombreRama>
 
     Eliminar una rama force
         git branch -D namerama
