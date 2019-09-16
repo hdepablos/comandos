@@ -92,6 +92,12 @@ En la ruta principal del proyecto
         
     Eliminar rama remota
         git push origin --delete <NombreRama>
+        
+    Eliminar una rama que no existe existe en el servidor
+        #Primero miro cuales se borarrían
+        git remote prune origin --dry-run 
+        #Luego las borro
+        git remote prune origin 
 
     Eliminar una rama force
         git branch -D namerama
