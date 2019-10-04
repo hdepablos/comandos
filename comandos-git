@@ -285,3 +285,42 @@ En la ruta principal del proyecto
     
     Limpiar cache:
         git rm -r --cached .
+        
+    =============================================================================================
+    =============================================================================================
+    Crear repositorio local
+    
+        Nos ubicamos en la carpeta donde están los respositorios.
+
+            Creamos el nombre de la carpeta
+                mkdir wc-promociones
+                cd wc-promociones
+                git --bare init
+            
+                git config core.sharedrepository 1
+                git config receive.denyNonFastforwards true
+                git config --bool core.bare true
+                find objects -type d -exec chmod 02770 {} \;
+        
+        En la máquina local, en el proyecto git:
+            git remote add origin ssh://root@10.85.233.24/var/www/wc-promociones
+            
+            git remote add origin ssh://usuario@servidor.com/dir_repo/project_git
+            git push -u origin master
+            
+            Verificar 
+                git checkout origin/master
+                git branch -f master origin/master
+                git checkout master
+            
+            
+            
+            
+        
+        
+        
+    
+    
+    
+        
+        
