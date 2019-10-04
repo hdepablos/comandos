@@ -231,7 +231,7 @@ En la ruta principal del proyecto
     Descargar un proyecto de la nube
         git clone https://github.com/hdepablos/comandos-git.git
         
-        git clone ssh://root@10.XX.XX.XX/var/www/nameproyect nameproyect
+        git clone ssh://root@10.XX.XX.XX/var/www/nameproyect
 
     Actualizar el proyecto local con el de la nube
         git pull origin master
