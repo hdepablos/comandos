@@ -301,6 +301,9 @@ En la ruta principal del proyecto
                 git config receive.denyNonFastforwards true
                 git config --bool core.bare true
                 find objects -type d -exec chmod 02770 {} \;
+                
+                En una sola linea en consola
+                    git config core.sharedrepository 1 && git config receive.denyNonFastforwards true && git config --bool core.bare true && find objects -type d -exec chmod 02770 {} \;
         
         En la máquina local, en el proyecto git:
             git remote add origin ssh://root@10.85.233.24/var/www/wc-promociones
