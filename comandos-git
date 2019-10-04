@@ -307,8 +307,6 @@ En la ruta principal del proyecto
         
         En la máquina local, en el proyecto git:
             git remote add origin ssh://root@XX.XX.XXX.XX/var/www/wc-promociones.git
-            
-            git remote add origin ssh://usuario@servidor.com/dir_repo/project_git
             git push -u origin master
             
             Verificar 
