@@ -1,0 +1,70 @@
+Doc:
+  https://www.youtube.com/watch?v=eBRtzk0Wd6g
+
+Instalar docker en debian
+  https://docs.docker.com/install/linux/docker-ce/debian/
+  
+  Pasos:
+    Eliminar versiones anterioes
+      sudo apt-get remove docker docker-engine docker.io containerd runc
+    
+    sudo apt-get update
+    
+    sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    software-properties-common
+    
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+    
+    sudo apt-key fingerprint 0EBFCD88
+    
+    sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/debian \
+    $(lsb_release -cs) \
+    stable"
+    
+    sudo apt-get update
+    
+    sudo apt-get install docker-ce docker-ce-cli containerd.io
+    
+Crear     
+
+Saber cuantas images tenemos:
+  sudo docker images
+
+
+Ejecutar docker sin sudo
+  doc: 
+    https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-ubuntu-18-04-1-es
+    
+  
+  sudo usermod -aG docker ${USER}
+  su - ${USER}
+  
+  Verificar que existe en el grupo
+    id -nG
+    sammy sudo docker
+    
+   
+
+
+Crear y activa una imagen de docker con postgres
+           
+ docker run -d -p 5444:5432 --name my-postgres -e POSTGRES_PASSWORD postgres
+ 
+ Eliminar la imagen creada:
+  docker stop id
+  
+  listar 
+    docker ps -a
+  Eliminar contenedor
+    docker rm f
+    docker rmi ee
+  
+  
+ 
+ 
+ 
