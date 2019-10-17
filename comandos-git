@@ -319,13 +319,7 @@ En la ruta principal del proyecto
                 git checkout master
             
             
-            
-            
-        
-        
-        
-    
-    
-    
-        
-        
+    =============================================================================================
+    =============================================================================================
+    Despues de un merge incorrecto podemos revertir de esta forma
+        git checkout origin/master .
