@@ -323,3 +323,9 @@ En la ruta principal del proyecto
     =============================================================================================
     Despues de un merge incorrecto podemos revertir de esta forma
         git checkout origin/master .
+        
+        
+    Error
+        git index.lock File exists
+    solución:
+        rm -f .git/index.lock
