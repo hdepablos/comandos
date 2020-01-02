@@ -1,0 +1,27 @@
+-- Crear la tabla migraciones en la bd
+  php artisan migrate:install
+-- Crear el new file de migrations
+  php artisan make:migration create_modelos_terrorismo
+
+-- Estructura
+   $table->bigIncrements('id'); 
+   
+   $table->increments('id');
+   $table->string('type_doc', 150)->change();
+   
+-- Relacionar y eliminar en cascade
+  $table->foreign('terrorist_id')->references('id')->on('terrorist')->onDelete('cascade');
+ 
+-- Para borrar todas las tablas de la base de datos y luego volverlas a crear:
+  	php artisan migrate:refresh
+
+-- Permite deshacer el último grupo de migraciones ejecutadas
+  php artisan migrate:rollback
+
+-- Change
+  Schema::table('users', function ($table) {
+    $table->string('name', 50)->change();
+  });
+  
+  -- Rutas
+  https://styde.net/creacion-de-tablas-con-el-sistema-de-migraciones-de-laravel/
