@@ -1,0 +1,2 @@
+-- Para inicializar
+  sudo docker exec -it blacklist /bin/bash
