@@ -30,3 +30,11 @@
     
 -- Almacenar con la relación muchos registro
   $user->posts()->insert($arr);
+  
+-- Relaciones con multiples tablas
+  $documents = DB::table('terrorists')
+      ->join('alias', 'alias.terrorist_id', '=', 'terrorists.id')
+      ->join('documents', 'documents.terrorist_id', '=', 'terrorists.id')
+      ->where('documents.number_doc', 'like', '%' . $document . '%')
+      ->select('terrorists.name', 'terrorists.gender', 'alias.alias', 'documents.type_doc', 'documents.number_doc')
+      ->get();
