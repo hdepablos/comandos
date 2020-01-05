@@ -1,2 +1,4 @@
 -- Para inicializar
   sudo docker exec -it blacklist /bin/bash
+-- Para compilar
+  sudo docker-compose build
