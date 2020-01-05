@@ -1,0 +1,32 @@
+-- Solo la tabla terrorist        
+  $terrorista = Terrorist::findOrFail($id);
+  return $terrorista;
+
+-- La tabla terrorist y sus alias     
+  $terrorista = Terrorist::findOrFail($id);
+  $terrorista->alias;
+  return $terrorista;
+  
+-- La tabla terrorist (alias, documents)  
+    $terrorista = Terrorist::findOrFail($id);
+    $terrorista->alias;
+    $terrorista->documents;
+    return $terrorista;
+    
+-- De forma inversa (alias, terrorist)
+  $terrorista = Alias::findOrFail($id);
+  $terrorista->terrorist;
+  return $terrorista;
+  
+-- De forma inversa (terrorist)
+  $terrorista = Alias::findOrFail($id);
+  return $terrorista->terrorist;
+
+-- Almacenar con la relación 1 registro
+  $user->posts()->create([
+    'name' => 'informacion',
+    'description' => 'Description'
+    ]);
+    
+-- Almacenar con la relación muchos registro
+  $user->posts()->insert($arr);
