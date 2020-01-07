@@ -1,0 +1,5 @@
+-- Crear commando
+  php artisan make:command UpdateTerrorisData
+
+-- Run command
+  php artisan terroristsdata:resfresh
