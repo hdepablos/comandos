@@ -42,3 +42,9 @@
       ->where('documents.number_doc', 'like', '%' . $document . '%')
       ->select('terrorists.name', 'terrorists.gender', 'alias.alias', 'documents.type_doc', 'documents.number_doc')
       ->get();
+      
+-- Has
+  $data = $this->terrorist::has('documents', '>=', 3)->get();
+  
+-- with
+  $data = $this->terrorist::with('alias')->with('documents')->get();
