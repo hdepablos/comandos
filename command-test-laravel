@@ -1,0 +1,2 @@
+-- Crear class 
+  php artisan make:test TerroristTest
