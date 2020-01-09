@@ -27,6 +27,10 @@
     'name' => 'informacion',
     'description' => 'Description'
     ]);
+-- Almacenar con muchos registros uno a muchos
+  $row = $this->terrorist->create($arrTerrorist);
+        $row->alias()->createMany($arrAlias);
+        $row->documents()->createMany($arrDocuments);
     
 -- Almacenar con la relación muchos registro
   $user->posts()->insert($arr);
