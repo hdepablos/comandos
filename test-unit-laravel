@@ -4,3 +4,6 @@
 
 -- Create a test in the Unit directory...
   php artisan make:test UserTest --unit
+
+-- Para ejecutar el test filtado
+  vendor/bin/phpunit --filter UserTest
