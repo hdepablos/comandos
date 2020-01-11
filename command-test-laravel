@@ -1,2 +1,11 @@
 -- Crear class 
   php artisan make:test TerroristTest
+-- Ejecutar test filter
+  vendor/bin/phpunit --filter testFoundTerroristList
+-- Add alias
+  alias t="vendor/bin/phpunit --filter"
+-- Show alias
+  alias t
+-- Run test filter
+  t testFoundTerroristList
+  
