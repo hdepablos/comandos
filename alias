@@ -1,0 +1,7 @@
+-- Add alias
+  alias t="vendor/bin/phpunit --filter"
+-- Show alias
+  alias t
+  
+-- Lista
+  alias t="vendor/bin/phpunit --filter"
