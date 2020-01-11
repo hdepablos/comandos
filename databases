@@ -1,0 +1,2 @@
+-- Acceder a bd mysql
+  mysql -h databases -u root -p
