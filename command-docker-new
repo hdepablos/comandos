@@ -14,6 +14,11 @@
 -- Para inicializar en el proyecto
   /var/www$ sudo docker exec -it blacklist /bin/bash
 
+-- Eliminar todas las imágenes de docker
+  docker rmi $(docker images -q)
+  
+-- Eliminar todos los contenedores de docker
+  docker rm $(docker ps -a -q)
 
 -- Para compilar
   sudo docker-compose build 
