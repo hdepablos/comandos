@@ -1,3 +1,6 @@
+-- Acceder a bd mysql
+  mysql -h databases -u root -p
+  
 -- instalar linux
   https://www.programadornovato.com/2019/02/instalar-docker-en-ubuntu-18.html
 
