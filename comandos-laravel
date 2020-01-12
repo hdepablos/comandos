@@ -9,4 +9,7 @@
   php artisan make:controller /Api/CheckBcraController
   
 -- Crear modelo
-  php artisan make:model Http/Models/Padron
+  php artisan make:model Models/Padron
+  
+-- Crear FormRequest
+  php artisan make:request NewBlackListRequest
