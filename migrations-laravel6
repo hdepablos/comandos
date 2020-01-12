@@ -19,8 +19,11 @@
 
 -- Permite deshacer el último grupo de migraciones ejecutadas
   php artisan migrate:rollback
+  
+-- Revertir y migrar la ultima migración
+  php artisan migrate:refresh --step=1
 
--- Change
+-- Change crear migrations agregar los cambios
   -- Tamaño
     Schema::table('users', function ($table) {
       $table->string('name', 50)->change();
