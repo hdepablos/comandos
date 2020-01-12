@@ -3,6 +3,7 @@ linux
   
   
 Al final del archivo 
+# Show git branch name
   force_color_prompt=yes
   color_prompt=yes
   parse_git_branch() {
