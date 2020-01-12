@@ -1,13 +1,15 @@
 -- Crear la tabla migraciones en la bd
   php artisan migrate:install
+  
 -- Crear el new file de migrations
-  php artisan make:migration create_modelos_terrorismo
+  php artisan make:migration create_black_list_table
+  
+-- Para crear el modelo
+  php artisan make:model Models/BlackList
 
 -- Estructura
    $table->bigIncrements('id'); 
-   
-   $table->increments('id');
-   $table->string('type_doc', 150)->change();
+   $table->increments('id'); // Recomendado
    
 -- Relacionar y eliminar en cascade
   $table->foreign('terrorist_id')->references('id')->on('terrorist')->onDelete('cascade');
@@ -19,9 +21,33 @@
   php artisan migrate:rollback
 
 -- Change
-  Schema::table('users', function ($table) {
-    $table->string('name', 50)->change();
-  });
+  -- Tamaño
+    Schema::table('users', function ($table) {
+      $table->string('name', 50)->change();
+    });
   
+  -- Aceptar null
+    Schema::table('users', function (Blueprint $table) {
+      $table->string('name', 50)->nullable()->change();
+    });
+  
+  -- Renombrar 
+    Schema::table('users', function($table)
+    {
+        $table->renameColumn('from', 'to');
+    });
+  
+  -- Eliminar una columna
+    Schema::table('users', function($table)
+    {
+        $table->dropColumn('votes');
+    });
+
+  -- Eliminar multiples columnas
+    Schema::table('users', function($table)
+    {
+        $table->dropColumn(array('votes', 'avatar', 'location'));
+    });
+
   -- Rutas
   https://styde.net/creacion-de-tablas-con-el-sistema-de-migraciones-de-laravel/
