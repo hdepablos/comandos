@@ -1,11 +1,22 @@
--- Crear class 
+-- Crear class Test
   php artisan make:test TerroristTest
+  
+-- Create a test in the Unit directory...
+  php artisan make:test UserTest --unit
+  
 -- Ejecutar test filter
   vendor/bin/phpunit --filter testFoundTerroristList
+  
 -- Add alias
-  alias t="vendor/bin/phpunit --filter"
+  alias t="clear && vendor/bin/phpunit --filter"
+  
 -- Show alias
   alias t
+  
 -- Run test filter
   t testFoundTerroristList
   
+-- Detalle de error
+  $this->withoutExceptionHandling();
+  
+
