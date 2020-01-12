@@ -48,3 +48,6 @@
   
 -- with
   $data = $this->terrorist::with('alias')->with('documents')->get();
+  
+-- SubConsulta
+  https://laravel-news.com/eloquent-subquery-enhancements
