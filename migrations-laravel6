@@ -11,6 +11,8 @@
    $table->bigIncrements('id'); 
    $table->increments('id'); // Recomendado
    
+   $table->decimal('amount', 12, 2); // Monto
+   
 -- Relacionar y eliminar en cascade
   $table->foreign('terrorist_id')->references('id')->on('terrorist')->onDelete('cascade');
  
@@ -51,6 +53,34 @@
     {
         $table->dropColumn(array('votes', 'avatar', 'location'));
     });
+    
+    
+  -- Modificaciones up agregar down eliminar probar si funciona en laravel 6
+    public function up()
+    {
+        Schema::table($this->table, function (Blueprint $tb) {
+            $tb->addColumn('integer', 'nfe_id', ['unsigned' => true, 'length' => 11])->after('indicador_id')->nullable();
+            $tb->index('nfe_id');
+            $tb->foreign('nfe_id')
+                ->references('id')
+                ->on('nota_fiscal_eletronica')
+                ->onDelete('no action')
+                ->onUpdate('no action');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table($this->table, function (Blueprint $tb) {
+            $tb->dropForeign('venda_nfe_id_foreign');
+            $tb->dropColumn('nfe_id');
+        });
+    }
 
   -- Rutas
   https://styde.net/creacion-de-tablas-con-el-sistema-de-migraciones-de-laravel/
