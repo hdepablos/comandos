@@ -22,3 +22,12 @@
 
 -- Para compilar
   sudo docker-compose build 
+  
+-- Para down (Poder editar docker file). Dentro de la carpeta del proyecto
+  sudo docker-compose down
+
+-- Coverage
+  xon
+  vendor/bin/phpunit --coverage-html .coverage
+  
+
