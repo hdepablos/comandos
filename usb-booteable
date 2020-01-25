@@ -1,9 +1,18 @@
-lsblk
-sudo fdisk -l debian-10.1.0-amd64-DVD-1.iso
+ lsblk
+ sudo fdisk -l debian-10.1.0-amd64-DVD-1.iso
     Disposit.                      Inicio Comienzo   Final Sectores Tamaño Id Tipo
     debian-10.1.0-amd64-DVD-1.iso1 *             0 7620031  7620032   3,6G  0 Vacía
     debian-10.1.0-amd64-DVD-1.iso2           23504   29167     5664   2,8M ef EFI (FAT-12/16/32)
     
  Nota: El * significa que es booteable, EFI es hibrida.
  
- sudo cp debian-10.1.0-amd64-DVD-1.iso /dev/sdb && sync
+ Ejecutar:
+    sudo cp debian-10.1.0-amd64-DVD-1.iso /dev/sdb && sync
+ 
+ Verificar: 
+    sudo fdisk -l /dev/sdb
+ 
+ Salida:
+    Disposit.                      Inicio Comienzo   Final Sectores Tamaño Id Tipo
+    debian-10.1.0-amd64-DVD-1.iso1 *             0 7620031  7620032   3,6G  0 Vacía
+    debian-10.1.0-amd64-DVD-1.iso2           23504   29167     5664   2,8M ef EFI (FAT-12/16/32)
