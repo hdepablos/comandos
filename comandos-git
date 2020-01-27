@@ -78,11 +78,14 @@ En la ruta principal del proyecto
 
     Crear rama y automaticamente dirigirse a ella
         git checkout -b namerama
-        
+    
     Crear una rama en el repository
         git checkout -b namerama
         git push origin newrama
-
+    
+    Actualizar ramas remotas
+        git remote update origin --prune
+        
     Cambiar el nombre de la rama
         Local
             git branch -m nameoriginal namenew
