@@ -33,5 +33,9 @@
 -- Coverage
   xon
   vendor/bin/phpunit --coverage-html .coverage
+
+-- ERROR: Network nginx-proxy declared as external, but could not be found. Please create the network manually using `docker network create nginx-proxy` and try again.
+  docker network create nginx-proxy
+
   
 
