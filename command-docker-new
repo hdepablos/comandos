@@ -4,8 +4,8 @@
 -- Para inicializar el proxy
   /var/www$ cd ngnix-proxy/
   sudo docker-compose up -d
-  sudo docker-compose stop
-  sudo docker-compose down
+  sudo docker-compose stop -- solo detendra la ejecución.
+  sudo docker-compose down -- ojo eliminara los contenedores detenidos y las redes que se crearon
   
 -- down all images docker
   sudo su
