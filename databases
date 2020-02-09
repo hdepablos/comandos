@@ -1,2 +1,11 @@
+-- docker
+    cd /var/www/databases
+
+    docker-compose up -d
+    docker exec -it databases /bin/bash
+
 -- Acceder a bd mysql
   mysql -h databases -u root -p
+
+
+    CREATE DATABASE alumnos;
