@@ -21,5 +21,8 @@
   
 -- Otra forma de salida de las pruebas
   --testdox
-  
+ 
+-- Coverage
+  xon
+  vendor/bin/phpunit --coverage-html .coverage
 
