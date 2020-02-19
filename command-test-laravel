@@ -1,5 +1,6 @@
 -- Documentación mockery
   https://stefanzweifel.io/posts/create-mocks-for-api-clients-in-laravel/
+  https://www.ethanbray.com/testing/2019/08/11/returning-values-and-exceptions-from-same-mock.html
 
 -- Crear class Test
   php artisan make:test TerroristTest
