@@ -1,3 +1,6 @@
+-- Documentación mockery
+  https://stefanzweifel.io/posts/create-mocks-for-api-clients-in-laravel/
+
 -- Crear class Test
   php artisan make:test TerroristTest
   
