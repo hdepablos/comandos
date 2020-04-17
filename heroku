@@ -1,0 +1,22 @@
+heroku login
+
+heroku create
+
+heroku create nameapp
+
+heroku apps:rename --app app-name-current app-name-new
+
+subir:
+  heroku push heroku master
+  
+delete cache heroku:
+    heroku plugins:install heroku-repo
+    heroku repo:purge_cache -a calm-wave-92758
+    git commit --allow-empty -m "Purge cache"
+    git push heroku master
+    
+create database mysql:
+  https://www.youtube.com/watch?v=dw1y7qwNb4E
+  
+Create database postgres:
+  https://www.youtube.com/watch?v=639Pe0PpVLQ
