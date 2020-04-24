@@ -20,3 +20,12 @@ create database mysql:
   
 Create database postgres:
   https://www.youtube.com/watch?v=639Pe0PpVLQ
+  
+Configuración de las variables de entorno heroku
+  heroku config:set APP_NAME=Sid && 
+  heroku config:set APP_ENV=production && 
+  heroku config:set APP_KEY=base64:sfPxX6Da9+wkrt5MiVykKSRUDP6PN8pvSVLs4xWeb6k= && 
+  heroku config:set APP_DEBUG=true && 
+  heroku config:set APP_URL='https://afternoon-stream-08539.herokuapp.com/' &&
+  heroku config:set API_KEY_SID=e856a398-43b1-49ab-8ca4-9469cfab4e3f &&
+  heroku config:set LOG_CHANNEL=errorlog 
