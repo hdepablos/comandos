@@ -28,4 +28,7 @@ Configuración de las variables de entorno heroku
   heroku config:set APP_DEBUG=true && 
   heroku config:set APP_URL='https://afternoon-stream-08539.herokuapp.com/' &&
   heroku config:set API_KEY_SID=e856a398-43b1-49ab-8ca4-9469cfab4e3f &&
-  heroku config:set LOG_CHANNEL=errorlog 
+  heroku config:set LOG_CHANNEL=errorlog &&
+  heroku config:set API_URL_SID_ORIGIN=https://renaperpreprod.dnm.gob.ar/ &&
+  heroku config:set API_URL_SID=http://onboarding.renaper.prod.vusecurity.com:8080/vu-onboarding-rest/onboarding/ &&
+  heroku config:set MIX_API_URL='https://afternoon-stream-08539.herokuapp.com/api/'
