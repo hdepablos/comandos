@@ -1,5 +1,8 @@
 En la ruta principal del proyecto
     
+    Delete git
+        rm -rf .git
+    
     Inicializar el repositorio
         git init
     
