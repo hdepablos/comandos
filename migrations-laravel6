@@ -1,3 +1,10 @@
+-- Ejecutar Seeder
+  php artisan db:seed
+-- Ejecutar Seeder filter
+  php artisan db:seed --class=UserSeeder
+-- Ejecutar Seeder and migrations
+  php artisan migrate:fresh --seed
+  
 -- Crear la tabla migraciones en la bd
   php artisan migrate:install
   
