@@ -13,6 +13,8 @@
   
 -- Para crear el modelo
   php artisan make:model Models/BlackList
+-- Para crear modelo con factory y migrations
+  php artisan make:model Models/Post -fm
 
 -- Estructura
    $table->bigIncrements('id'); 
