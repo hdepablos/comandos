@@ -6,6 +6,8 @@
 
 -- Crear controlador Api
   php artisan make:controller /Api/CheckBcraController
+  php artisan make:controller /Api/CheckBcraController --api
+  
   
 -- Crear modelo
   php artisan make:model Models/Padron
