@@ -4,6 +4,9 @@
 -- Optimizar
   php artisan clear-compiled && php artisan view:clear && php artisan route:clear && php artisan config:cache && php artisan cache:clear && php artisan optimize && php artisan route:cache && php artisan config:clear
 
+-- Crear key
+  php artisan key:generate
+
 -- Crear controlador Api
   php artisan make:controller /Api/CheckBcraController
   php artisan make:controller /Api/CheckBcraController --api
