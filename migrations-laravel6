@@ -4,6 +4,10 @@
   php artisan db:seed --class=UserSeeder
 -- Ejecutar Seeder and migrations
   php artisan migrate:fresh --seed
+-- Ejecutar en tinker
+  factory(App\Lead::class, 100)->create();
+  
+  
   
 -- Crear la tabla migraciones en la bd
   php artisan migrate:install
