@@ -32,6 +32,9 @@
 -- Para borrar todas las tablas de la base de datos y luego volverlas a crear:
   	php artisan migrate:refresh
 
+-- Para ejecutar una migrations especifica
+  php artisan migrate --path=/database/migrations/my_migration.php 
+
 -- Permite deshacer el último grupo de migraciones ejecutadas
   php artisan migrate:rollback
   
