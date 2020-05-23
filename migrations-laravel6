@@ -28,6 +28,7 @@
             $lastName = $faker->lastName
             $faker->unique()->safeEmail
             $faker->phoneNumber
+            'file' => $faker->imageUrl($width = 1200, $heigth = 400),
             'hash' => Str::random(10)
             'email_verified_at' => now(),
             'identity_validated' => random_int(0, 1),
