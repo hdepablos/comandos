@@ -4,3 +4,87 @@ Recordar ulitmo proyecto
       restoreWindows
         one: último proyecto
         none: Defaul ultimas versiones, no recordar ningun proyecto.
+
+
+config.json
+{
+    "editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
+    // "prettier.arrowParens": "always",
+    "editor.fontLigatures": true,
+    "editor.tabSize": 4,
+    "editor.wordWrap": "on",
+    "editor.insertSpaces": true,
+    "editor.lineHeight": 20,
+    "editor.fontSize": 16,
+    "editor.renderLineHighlight": "all",
+    "window.menuBarVisibility": "toggle",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorCustomizations": {},
+    "editor.detectIndentation": false,
+    "editor.renderWhitespace": "all",
+    "emmet.syntaxProfiles": {
+        "javascript": "html"
+    },
+    "emmet.includeLanguages": {
+        "javascript": "html"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "breadcrumbs.enabled": true,
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnPaste": true,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": -1,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.minimap.enabled": false,
+    "terminal.integrated.rendererType": "dom",
+    "editor.renderControlCharacters": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "todohighlight.isEnable": true,
+    "emmet.triggerExpansionOnTab": true,
+    "window.restoreWindows": "none",
+    // "workbench.iconTheme": "vs-seti",
+    "terminal.integrated.fontFamily": "Consolas, 'Courier New', monospace",
+    "extensions.ignoreRecommendations": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnSave": true,
+    // "editor.defaultFormatter": "vscode.html-language-features",
+    // "prettier"
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "[javascript]": {
+    //     "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // // },
+    // "prettier.bracketSpacing": true,
+    // "prettier.htmlWhitespaceSensitivity": "css",
+    // "prettier.insertPragma": false,
+    // "prettier.jsxBracketSameLine": false,
+    // "prettier.jsxSingleQuote": false,
+    // "prettier.proseWrap": "preserve",
+    // "prettier.quoteProps": "as-needed",
+    // "prettier.requirePragma": false,
+    // "prettier.semi": true,
+    // "prettier.singleQuote": true,
+    // "prettier.tabWidth": 4,
+    // "prettier.trailingComma": "none",
+    // "prettier.useTabs": true,
+    // "prettier.printWidth": 100,
+    // "editor.rulers": [100]
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+    "php-cs-fixer.executablePathWindows": "", //eg: php-cs-fixer.bat
+    "php-cs-fixer.onsave": false,
+    "php-cs-fixer.rules": "@PSR2",
+    "php-cs-fixer.config": ".php_cs;.php_cs.dist",
+    "php-cs-fixer.allowRisky": false,
+    "php-cs-fixer.pathMode": "override",
+    "php-cs-fixer.exclude": [],
+    "php-cs-fixer.autoFixByBracket": true,
+    "php-cs-fixer.autoFixBySemicolon": false,
+    "php-cs-fixer.formatHtml": false,
+    "php-cs-fixer.documentFormattingProvider": true,
+    "php-cs-fixer.lastDownload": 1590200986468,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "markdown-preview-enhanced.breakOnSingleNewLine": false,
+    "explorer.confirmDragAndDrop": false
+}
