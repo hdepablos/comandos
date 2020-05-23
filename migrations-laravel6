@@ -28,6 +28,8 @@
             $lastName = $faker->lastName
             $faker->unique()->safeEmail
             $faker->phoneNumber
+            $faker->sentence(4); // texto de cuatro palabras
+            $faker->unique()->word(5); // Palabra unica de cinco caracteres
             'file' => $faker->imageUrl($width = 1200, $heigth = 400),
             'hash' => Str::random(10)
             'email_verified_at' => now(),
