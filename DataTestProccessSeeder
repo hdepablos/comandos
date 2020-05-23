@@ -1,0 +1,92 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class DataTestProccessSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+
+        factory(App\Customer::class, 20)->create();
+        factory(App\LeadOffer::class, 5)->create();
+        // *****************************************
+        $agents = [
+            ['name' => 'Google Chrome', 'browser' => 'Google Chrome', 'browser_version' => '1.1'],
+            ['name' => 'Firefox', 'browser' => 'Firefox', 'browser_version' => '1.1'],
+            ['name' => 'Safari', 'browser' => 'Safari', 'browser_version' => '1.1'],
+            ['name' => 'Internet Explorer', 'browser' => 'Internet Explorer', 'browser_version' => '1.1'],
+            ['name' => 'Opera', 'browser' => 'Opera', 'browser_version' => '1.1'],
+            ['name' => 'Mobile Safari', 'browser' => 'Mobile Safari', 'browser_version' => '1.1'],
+            ['name' => 'UC Browser', 'browser' => 'UC Browser', 'browser_version' => '1.1'],
+            ['name' => 'SRWare Iron', 'browser' => 'SRWare Iron', 'browser_version' => '1.1'],
+            ['name' => 'Android Browser', 'browser' => 'Android Browser', 'browser_version' => '1.1'],
+            ['name' => 'PhantomJS', 'browser' => 'PhantomJS', 'browser_version' => '1.1'],
+        ];
+
+        foreach ($agents as $agent) {
+            App\Agent::create([
+                'name' => $agent['name'],
+                'browser' => $agent['browser'],
+                'browser_version' => $agent['browser_version']
+            ]);
+        }
+        // *****************************************
+        $devices = [
+            ['kind' => 'phone', 'model' => 'xx.x', 'platform' => 'AndroidOS', 'platform_version' => '1.1', 'is_mobile' => 1],
+            ['kind' => 'phone', 'model' => 'xx.x', 'platform' => 'iOS', 'platform_version' => '1.1', 'is_mobile' => 1],
+            ['kind' => 'computer', 'model' => 'xx.x', 'platform' => 'Linux', 'platform_version' => '1.1', 'is_mobile' => 0],
+            ['kind' => 'computer', 'model' => 'xx.x', 'platform' => 'OS X', 'platform_version' => '1.1', 'is_mobile' => 0],
+            ['kind' => 'computer', 'model' => 'xx.x', 'platform' => 'Windows', 'platform_version' => '1.1', 'is_mobile' => 0],
+        ];
+
+        foreach ($devices as $device) {
+            App\Device::create([
+                'kind' => $device['kind'],
+                'model' => $device['model'],
+                'platform' => $device['platform'],
+                'platform_version' => $device['platform_version'],
+                'is_mobile' => $device['is_mobile']
+            ]);
+        }
+        // *****************************************
+
+        $leads = App\Lead::get();
+
+        foreach ($leads as $lead) {
+            echo $lead->name;
+            App\LeadUserData::create([
+                'lead_id' => $lead->id,
+                'device_id' => App\Device::all()->random(1)->first()->id,
+                'agent_id' => App\Agent::all()->random(1)->first()->id,
+            ]);
+        }
+
+
+        // Otra forma
+        factory(App\Post::class, 300)->create()->each(function(App\Post $post){
+            $post->tags()->attach([rand(1,5), rand(6, 14), rand(15, 20)]);
+        });
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
