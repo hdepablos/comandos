@@ -24,6 +24,7 @@
     php artisan make:factory PostFactory
         
         -- Documentación: https://github.com/fzaninotto/Faker
+            -- str_slug
             $firstName = $faker->firstName
             $lastName = $faker->lastName
             $faker->unique()->safeEmail
