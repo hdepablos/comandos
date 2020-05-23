@@ -7,8 +7,9 @@
 -- Ejecutar en tinker
   factory(App\Lead::class, 100)->create();
   
-  
-  
+-- Crear campo enum
+  $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT');
+
 -- Crear la tabla migraciones en la bd
   php artisan migrate:install
   
