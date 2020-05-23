@@ -1,22 +1,8 @@
--- Solo la tabla terrorist        
-  $terrorista = Terrorist::findOrFail($id);
-  return $terrorista;
 
--- La tabla terrorist y sus alias     
-  $terrorista = Terrorist::findOrFail($id);
-  $terrorista->alias;
-  return $terrorista;
-  
--- La tabla terrorist (alias, documents)  
-    $terrorista = Terrorist::findOrFail($id);
-    $terrorista->alias;
-    $terrorista->documents;
-    return $terrorista;
-    
--- De forma inversa (alias, terrorist)
-  $terrorista = Alias::findOrFail($id);
-  $terrorista->terrorist;
-  return $terrorista;
+-- Data con sus Relaciones
+    -- Para que funcione en los modelos deberian de existir
+    $lead = $this->lead->with(['customer', 'bank', 'status', 'region', 'history', 'history.status', 'history.user', 'offers', 'userData', 'userData.agent', 'userData.device'])
+            ->find($id);
 
 -- Almacenar con la relación 1 registro
   $user->posts()->create([
@@ -41,9 +27,6 @@
       
 -- Has
   $data = $this->terrorist::has('documents', '>=', 3)->get();
-  
--- with
-  $data = $this->terrorist::with('alias')->with('documents')->get();
   
 -- SubConsulta
   https://laravel-news.com/eloquent-subquery-enhancements
