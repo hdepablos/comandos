@@ -1,49 +1,89 @@
--- Ejecutar Seeder
-  php artisan db:seed
--- Ejecutar Seeder filter
-  php artisan db:seed --class=UserSeeder
--- Ejecutar Seeder and migrations
-  php artisan migrate:fresh --seed
--- Ejecutar en tinker
-  factory(App\Lead::class, 100)->create();
-  
 -- Crear la tabla migraciones en la bd
-  php artisan migrate:install
-  
+    php artisan migrate:install
 -- Crear el new file de migrations
-  php artisan make:migration create_black_list_table
-  
+    php artisan make:migration create_black_list_table
 -- Para crear el modelo
-  php artisan make:model Models/BlackList
+    php artisan make:model Models/BlackList
 -- Para crear modelo con factory y migrations
-  php artisan make:model Models/Post -fm
+    php artisan make:model Models/Post -fm
 -- Documentación: https://laravel.com/docs/5.0/schema
 -- Estructura 
-   $table->bigIncrements('id'); 
-   $table->increments('id'); // Recomendado
-   $table->('slug',128)->unique();
-   $table->integer('user_id')->unsigned();
-   $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT'); // Enum
-   $table->decimal('amount', 12, 2); // Monto
-   $table->string('file', 128)->nullable(); // Imagen
-   $table->mediumText('excerpt')->nullable();
-   
--- Relacionar eliminar y actualizar en cascade
-  $table->foreign('terrorist_id')->references('id')->on('terrorist')->onDelete('cascade')->onUpdate('cascade');
+    $table->bigIncrements('id'); 
+    $table->increments('id'); // Recomendado
+    $table->('slug',128)->unique();
+    $table->integer('user_id')->unsigned();
+    $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT'); // Enum
+    $table->decimal('amount', 12, 2); // Monto
+    $table->string('file', 128)->nullable(); // Imagen
+    $table->mediumText('excerpt')->nullable();
+-- Relacionar eliminar y actualizar en cascade:
+    $table->foreign('terrorist_id')->references('id')->on('terrorist')->onDelete('cascade')->onUpdate('cascade');
+
+
+-- Crear factory
+    php artisan make:factory PostFactory
+        
+        -- Documentación: https://github.com/fzaninotto/Faker
+            $firstName = $faker->firstName
+            $lastName = $faker->lastName
+            $faker->unique()->safeEmail
+            $faker->phoneNumber
+            'hash' => Str::random(10)
+            'email_verified_at' => now(),
+            'identity_validated' => random_int(0, 1),
+
+            -- Id aleatorio de una tabla
+            $id => App\Customer::all()->random(1)->first()->id,
+
+            -- DNI
+            $identification_number = $faker->unique()->numberBetween(95897200, 98899900);
+            
+            -- CUIL
+            $gender = random_int(0, 1); // Genero
+            $unique_identifier = (($gender) ? "20" : "27") .  $identification_number . (($gender) ? "2" : "3");
+            
+            -- Fecha de nacimiento de un año especifico
+            $year = rand(1998, 2000);
+            $month = rand(1, 12);
+            $day = rand(1, 28);
+            $birthday = Carbon::create($year, $month, $day, 0, 0, 0);
+            
+            -- CBU
+            $cbu = substr(str_shuffle(str_repeat('0123456789', 5)), 0, 22);
+
+            -- Opciones aleatorias
+            $amount = [4000, 8000, 6000, 10000];
+            'installment_amount' => $amount[array_rand($amount)],
+
+            -- Conjunto de opciones aleatorias
+            $id = rand(1, 5) - 1;
+            $montoSolicitado = ["10000","11000", "15000", "25000", "8000"];
+            $montoAprobado = ["5000","6000", "10000", "15000", "4000"];
+            $montoCuotas = ["2","3", "4", "3", "4"];
+            $montoSolicitado = $montoSolicitado[$id];
+            $montoAprobado = $montoAprobado[$id];
+            $montoCuotas = $montoCuotas[$id];
+
+    -- Ejecutar en cascada
+    $factory->afterCreating(App\Customer::class, function ($customer, $faker) {
+        $customer->leads()->saveMany(factory(App\Lead::class, 3)->make());
+        $customer->loans()->saveMany(factory(App\Loan::class, 2)->make());
+    });
+
+-- Ejecutar en tinker
+    factory(App\Lead::class)->create(); // 1
+    factory(App\Lead::class, 100)->create(); // Many
  
 -- Para borrar todas las tablas de la base de datos y luego volverlas a crear:
   	php artisan migrate:refresh
-
 -- Para ejecutar una migrations especifica
-  php artisan migrate --path=/database/migrations/my_migration.php 
-
+    php artisan migrate --path=/database/migrations/my_migration.php 
 -- Permite deshacer el último grupo de migraciones ejecutadas
-  php artisan migrate:rollback
-  
+    php artisan migrate:rollback
 -- Revertir y migrar la ultima migración
-  php artisan migrate:refresh --step=1
+    php artisan migrate:refresh --step=1
 
--- Change crear migrations agregar los cambios
+-- Modificar crear migrations agregar los cambios
   -- Tamaño
     Schema::table('users', function ($table) {
       $table->string('name', 50)->change();
@@ -73,7 +113,7 @@
     });
     
     
-  -- Modificaciones up agregar down eliminar probar si funciona en laravel 6
+  -- Modificaciones up agregar down eliminar probar si funciona
     public function up()
     {
         Schema::table($this->table, function (Blueprint $tb) {
@@ -102,3 +142,13 @@
 
   -- Rutas
   https://styde.net/creacion-de-tablas-con-el-sistema-de-migraciones-de-laravel/
+
+
+-- Crear Seeder
+    php artisan make:seeder UserSeeder
+-- Ejecutar Seeder and migrations
+    php artisan migrate:fresh --seed
+-- Ejecutar Seeder filter
+    php artisan db:seed --class=UserSeeder
+
+    Seeder example file: DataTestProccessSeeder
