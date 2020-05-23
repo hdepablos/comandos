@@ -1,0 +1,6 @@
+Recordar ulitmo proyecto
+  File/Preferences/Settings
+    windows
+      restoreWindows
+        one: último proyecto
+        none: Defaul ultimas versiones, no recordar ningun proyecto.
