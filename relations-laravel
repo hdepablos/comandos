@@ -17,10 +17,6 @@
   $terrorista = Alias::findOrFail($id);
   $terrorista->terrorist;
   return $terrorista;
-  
--- De forma inversa (terrorist)
-  $terrorista = Alias::findOrFail($id);
-  return $terrorista->terrorist;
 
 -- Almacenar con la relación 1 registro
   $user->posts()->create([
