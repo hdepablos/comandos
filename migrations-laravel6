@@ -17,15 +17,16 @@
   php artisan make:model Models/BlackList
 -- Para crear modelo con factory y migrations
   php artisan make:model Models/Post -fm
-
--- Estructura
+-- Documentación: https://laravel.com/docs/5.0/schema
+-- Estructura 
    $table->bigIncrements('id'); 
    $table->increments('id'); // Recomendado
-   
+   $table->('slug',128)->unique();
    $table->integer('user_id')->unsigned();
    $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('DRAFT'); // Enum
    $table->decimal('amount', 12, 2); // Monto
    $table->string('file', 128)->nullable(); // Imagen
+   $table->mediumText('excerpt')->nullable();
    
 -- Relacionar eliminar y actualizar en cascade
   $table->foreign('terrorist_id')->references('id')->on('terrorist')->onDelete('cascade')->onUpdate('cascade');
