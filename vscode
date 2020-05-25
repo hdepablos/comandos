@@ -1,3 +1,8 @@
+shortcuts
+  linux: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
+      ctrl + enter // new line
+      ctrl + k  ctrl + s // shortcuts
+      
 Recordar ulitmo proyecto
   File/Preferences/Settings
     windows
