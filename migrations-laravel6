@@ -1,3 +1,5 @@
+-- Documentación: https://readouble.com/laravel/6.x/en/migrations.html
+
 -- Crear la tabla migraciones en la bd
     php artisan migrate:install
 -- Crear el new file de migrations
