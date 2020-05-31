@@ -29,4 +29,46 @@
 -- Coverage
   xon
   vendor/bin/phpunit --coverage-html .coverage
+  
+-- 1 Given => Teniendo Obtenido los datos
+-- 2 When => Cuando hace Procesando los datos
+-- 3 Then => Entonces Resultado de los estados
+
+-- 1 Given => Teniendo Obtenido los datos
+  -- User logueado
+    -- Por factory con algunos datos específicos
+      $user = factory(User::class)->create(['email' => 'xxx@gmail.com']);
+    -- Por busqueda a un usuario especifico
+  
+   $this->actingAs($user);
+  
+-- 2 When => Cuando hace Procesando los datos  
+  $this->post(route('status.store'), ['body' => 'Mi primer status']);
+  $this->postJson(route('status.store'), ['body' => 'Mi primer status']);
+  
+-- 3 Then => Entonces Resultado de los estados
+  $this->assertDatabaseHas('statuses', [
+    'user_id' => $user->id,
+    'body' => 'Mi primer status'
+  ]);
+  
+-- Respose > 200 and < 300
+  $response->assertSuccessful();
+
+-- Detalle de la respuesta
+  dd($response->content());
+  dd($response->getContent());
+
+-- Verificar Json
+  $this->assertJson('status', [
+    'body' => 'Mi primer status'
+  ]);
+  
+-- Validar 422
+  $response->assertStatus(422);
+  $response->assertJsonStructure([
+    'message', 'errors' => ['body'] 
+  ]);
+  
+  
 
