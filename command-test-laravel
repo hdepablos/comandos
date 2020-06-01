@@ -70,5 +70,7 @@
     'message', 'errors' => ['body'] 
   ]);
   
-  
+-- Set fecha intancia
+  $knownDate = Carbon::create(2020, 1, 1, 12);
+  Carbon::setTestNow($knownDate);
 
