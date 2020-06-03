@@ -44,7 +44,7 @@ En la ruta principal del proyecto
         git add namefile
 
     Ver log
-        git log --oneline
+        git log --oneline | cat
     
     Eliminar un commit, mantiene los cambios en el stage
         git reset 45f73af
