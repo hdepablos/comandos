@@ -157,6 +157,6 @@ https://stackoverflow.com/questions/29381815/laravel-5-migrations-default-length
 -- Ejecutar Seeder and migrations
     php artisan migrate:fresh --seed
 -- Ejecutar Seeder filter
-    php artisan db:seed --class=UserSeeder
+    php artisan db:seed --class=DataTestProccessSeeder
 
     Seeder example file: DataTestProccessSeeder
