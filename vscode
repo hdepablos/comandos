@@ -3,6 +3,12 @@ shortcuts
       ctrl + enter // new line
       ctrl + k  ctrl + s // shortcuts
       
+      Turbo console.log
+          ctrl + alt + l // Add console log variable
+          ctrl + shift + d // Delete all comments
+          shift + alt + c // Comentar
+          shift + alt + u // Descomentar
+      
 Recordar ulitmo proyecto
   File/Preferences/Settings
     windows
