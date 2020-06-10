@@ -54,6 +54,8 @@ En la ruta principal del proyecto
     
     Eliminar un commit y dejar los cambios en el stage
         git reset --soft 45f73af
+        si es el último:
+            git reset --soft HEAD~1 
 
     Diferencias entre dos commit
         git diff 45f73af 05a86cfgit 
