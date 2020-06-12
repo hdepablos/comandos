@@ -160,3 +160,18 @@ https://stackoverflow.com/questions/29381815/laravel-5-migrations-default-length
     php artisan db:seed --class=DataTestProccessSeeder
 
     Seeder example file: DataTestProccessSeeder
+    
+    Para ejecutar varios seeders:
+        public function run()
+        {
+            $this->call([
+                BankSeeder::class,
+                RegionSeeder::class,
+                BranchsBankPatagoniaSeeder::class,
+                StatusSeeder::class,
+                CompanySeeder::class,
+                BankSellerCollectorSeeder::class,
+                UserSeeder::class
+            ]);
+        }
+    
