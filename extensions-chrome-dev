@@ -2,6 +2,28 @@ https://www.youtube.com/watch?v=m_WrK_IEQIk
 
 Las Extensiones de Google Chrome para Desarrollo
 - Vimiun
+   [crtl + t, t] : A new tab
+   shift + ak: Result in new tab
+   ctrl + t: Go to the new page
+   d: Big jumps down
+   u: Naveigate up
+   shift + g: End of page.
+   g+g: Top of page
+   esc: Para habilitar y poder escribir f
+   [ctrl + w, x]: Close current tab 
+   F6: Positios the cursor in the url
+   o: Activate history
+   [alt + left, alt + rigth ]: Go to page back, go to page next
+   shift + h: Go to page back hitory
+   shift + l: Go to page next history
+   shift + t: Activate combo box item the tabs
+   shift + ¿: show Help shortcuts
+   yy: Copy Url in the clipboard
+   r: Reload the page
+   j: Go to down
+   k: Gto ro up
+    ctrl + tab: Show next teb
+    ctrl + tab + shift: Show back
 - Stylus
   search : Stylus dark theme Chrome
      https://userstyles.org/styles/browse/google
@@ -14,3 +36,4 @@ Las Extensiones de Google Chrome para Desarrollo
    Más información en el buscador
 - Wappalyzer
    Descripción de con cual tecnología esta hecha la página
+ 
