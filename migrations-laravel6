@@ -1,6 +1,8 @@
 -- Documentación: https://readouble.com/laravel/6.x/en/migrations.html
 -- Length
 https://stackoverflow.com/questions/29381815/laravel-5-migrations-default-length-of-different-types-in-schematable-method
+https://styde.net/generando-datos-de-prueba-con-faker-en-laravel/
+https://github.com/fzaninotto/Faker#fakerprovideren_usaddress
 
 -- Crear la tabla migraciones en la bd
     php artisan migrate:install
@@ -34,6 +36,8 @@ https://stackoverflow.com/questions/29381815/laravel-5-migrations-default-length
             -- str_slug
             $firstName = $faker->firstName
             $lastName = $faker->lastName
+            $faker->companyName,
+            $faker->address,
             $faker->unique()->safeEmail
             $faker->phoneNumber
             $faker->sentence(4); // texto de cuatro palabras
