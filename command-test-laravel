@@ -70,6 +70,15 @@
     'message', 'errors' => ['body'] 
   ]);
   
+    $this->artisan('db:seed --class=BankSeeder');
+    $this->artisan('db:seed --class=CompanySeeder');
+    $this->artisan('db:seed --class=BankSellerCollectorSeeder');
+    $response = $this->post('/api/admin/seller-collector/data-config', []);
+    $response->assertJsonStructure([
+        'banks' => [['id', 'entity_code', 'name']], 'companies' => [['id', 'name']]
+    ]);
+    $response->assertStatus(200);
+
 -- Set fecha intancia
   $knownDate = Carbon::create(2020, 1, 1, 12);
   Carbon::setTestNow($knownDate);
