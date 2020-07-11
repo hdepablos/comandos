@@ -1,4 +1,9 @@
 -- Documentación: https://www.w3resource.com/laravel/eloquent-relationships.php
+-- https://laraveldaily.com/eloquent-date-filtering-wheredate-and-other-methods/
+-- https://laravel-guide.readthedocs.io/en/latest/pagination/?q=order&check_keywords=yes&area=default
+-- https://laravel.com/api/5.8/Illuminate/Database/Eloquent/Builder.html#method_removedScopes
+-- https://laravel-guide.readthedocs.io/en/latest/eloquent-relationships/#querying-relations
+
 
 -- Data con sus Relaciones
     -- Para que funcione en los modelos deberian de existir
