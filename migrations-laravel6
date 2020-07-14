@@ -46,6 +46,7 @@ https://github.com/fzaninotto/Faker#fakerprovideren_usaddress
             'hash' => Str::random(10)
             'email_verified_at' => now(),
             'identity_validated' => random_int(0, 1),
+            $faker->unique()->numberBetween(1, 999),
 
             -- Id aleatorio de una tabla
             $id => App\Customer::all()->random(1)->first()->id,
