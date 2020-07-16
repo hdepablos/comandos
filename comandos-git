@@ -1,5 +1,8 @@
 En la ruta principal del proyecto
     
+    recuperar branch o commit 
+        git fsck --full --no-reflogs | grep commit
+    
     Delete git
         rm -rf .git
     
