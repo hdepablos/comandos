@@ -1,0 +1,19 @@
+
+127.0.0.1       localhost
+127.0.1.1       hd.hd   hd
+127.0.1.1       nosis.vm
+127.0.1.1       backoffice.vm risk.vm appxls.vm
+127.0.1.1       auth.vm sid.vm
+127.0.1.1       laravel-quasar.vm prueba.vm
+127.0.1.1       newsid.vm app-sid.vm asbackoffice.vm proveedor.vm tienda1.vm tienda2.vm sid-new.vm appxls.vm
+127.0.1.1       mianticipo.vm
+localhost       pwapushweb.vm
+127.0.1.1       risk.vm
+127.0.1.1       padron.vm
+127.0.1.1       mutual.vm
+127.0.1.1       multiple.vm
+127.0.1.1       cypress.vm
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
