@@ -10,6 +10,8 @@ https://github.com/fzaninotto/Faker#fakerprovideren_usaddress
     php artisan make:migration create_black_list_table
     php artisan make:migration create_users_table --create=users
     php artisan make:migration add_votes_to_users_table --table=users
+-- Para ejecutar una migrations especifica
+    php artisan migrate --path=/database/migrations/my_migration.php 
 -- Para crear el modelo
     php artisan make:model Models/BlackList
 -- Para crear modelo con factory y migrations
