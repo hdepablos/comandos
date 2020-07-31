@@ -39,6 +39,7 @@ https://github.com/fzaninotto/Faker#fakerprovideren_usaddress
             $firstName = $faker->firstName
             $lastName = $faker->lastName
             $faker->companyName,
+                $faker->unique()->company,
             $faker->address,
             $faker->unique()->safeEmail
             $faker->phoneNumber
