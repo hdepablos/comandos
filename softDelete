@@ -1,0 +1,10 @@
+Doc: https://www.youtube.com/watch?v=59jUldaOOIQ&t=21s
+
+Add the model:
+  use Illuminate\Database\Eloquent\SoftDeletes
+
+Add: traits php
+  use SoftDeletes;
+  
+   
+
