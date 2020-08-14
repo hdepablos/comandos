@@ -6,3 +6,12 @@ https://css-tricks.com/form-validation-in-under-an-hour-with-vuelidate/
 
 ref:
   https://codepen.io/ingedison/pen/rvRNxo
+  
+  
+  
+  
+  itemtocheck: {
+  requiredIf: requiredIf(function () {
+    return this.myitem !== 'somevalue'
+  }),
+  minLength: minLength(2) },
