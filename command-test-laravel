@@ -8,6 +8,9 @@
 -- Create a test in the Unit directory...
   php artisan make:test UserTest --unit
   
+-- Ejecutar test y detener si falla
+  phpunit --testdox --stop-on-failure
+  
 -- Ejecutar test filter
   vendor/bin/phpunit --filter testFoundTerroristList
   
