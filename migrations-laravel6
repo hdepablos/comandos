@@ -51,6 +51,7 @@ https://github.com/fzaninotto/Faker#fakerprovideren_usaddress
     $table->float('amount'); // Monto
     $table->string('file', 128)->nullable(); // Imagen
     $table->mediumText('excerpt')->nullable();
+    $table->longText('description');
 -- Relacionar eliminar y actualizar en cascade:
     $table->foreign('terrorist_id')->references('id')->on('terrorist')->onDelete('cascade')->onUpdate('cascade');
 
