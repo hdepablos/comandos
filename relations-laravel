@@ -60,5 +60,12 @@ $data = $this->terrorist
     }])->get();
   
   
+  -- relations with field selection
+    $data = User::all();
+    $data = User::with('providerPrueba')->get();
+    $data = User::with('providerPrueba:id,name')->get();
+    $data = User::with(['providerPrueba:id,name', 'provider:id'])->get();
+    $data = User::with(['providerPrueba:id,name', 'provider:id'])->get();
+
   
   
