@@ -3,6 +3,7 @@
   
 -- Command laravel
   composer dump-autoload
+  php artisan make:controller ItemController --resource --model=Item
   php artisan clear-compiled && php artisan view:clear && php artisan route:clear && php artisan config:cache && php artisan cache:clear && php artisan optimize && php artisan route:cache && php artisan config:clear
   php artisan make:model Models/BlackList
   php artisan make:factory CategoriaFactory --model=Categoria
@@ -13,7 +14,15 @@
   php artisan make:migration add_votes_to_users_table --table=users
   php artisan migrate --path=/database/migrations/my_migration.php
   
-  
+-- Resource
+  php artisan make:controller ItemController --resource
+    public function index(){}
+    public function create(){}
+    public function store(Request $request){}
+    public function show($id){}
+    public function edit($id){}
+    public function update(Request $request, $id){}
+    public function destroy($id){}
   
   
 -- Crear key
