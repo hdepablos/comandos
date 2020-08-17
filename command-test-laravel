@@ -86,3 +86,6 @@
   $knownDate = Carbon::create(2020, 1, 1, 12);
   Carbon::setTestNow($knownDate);
 
+-- Convertir json response
+$data = $response->decodeResponseJson();
+
