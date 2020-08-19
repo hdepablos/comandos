@@ -58,6 +58,20 @@ $data = $this->terrorist
     $users = App\User::with(['posts' => function ($query) {
         $query->orderBy('created_at', 'desc');
     }])->get();
+    
+    // Funciona
+        // $data = $this->atributte->with(['types'])->find(1);
+
+        // $data = $this->atributte->with(['types' => function ($query) use ($atributte, $value) {
+        //     $query->where('name', 'Blancodd');
+        // }])->get()->toArray();
+
+        $data = $this->atributte->with('types')
+            ->whereHas('types', function ($query) use ($atributte, $value) {
+                $query->where($atributte, $value);
+            })
+            ->get()->toArray();
+
   
   
   -- relations with field selection
