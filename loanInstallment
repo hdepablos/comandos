@@ -1,0 +1,29 @@
+<?php
+
+use Carbon\Carbon;
+use Illuminate\Database\Seeder;
+
+class LoanInstallmentSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $loans = App\Loan::get();
+
+        foreach ($loans as $loan) {
+            App\LoanInstallment::create([
+                'loan_id' => $loan->id,
+                'amount' => 20000,
+                'due_date' => Carbon::now(),
+                'payment_date' => Carbon::now(),
+                'payment_proof' => "prueba",
+                'payment_method' => "mer",
+                'status_id' => 1,
+            ]);
+        }
+    }
+}
