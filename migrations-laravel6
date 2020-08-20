@@ -53,6 +53,7 @@ https://github.com/fzaninotto/Faker#fakerprovideren_usaddress
     $table->mediumText('excerpt')->nullable();
     $table->longText('description');
     $table->unique(['name', 'provider_id']);
+    strtoupper($faker->lexify('???')), // 3 letras Mayusculas
     
 -- Relacionar eliminar y actualizar en cascade:
     $table->foreign('terrorist_id')->references('id')->on('terrorist')->onDelete('cascade')->onUpdate('cascade');
