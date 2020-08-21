@@ -1,3 +1,6 @@
+Ver los archivos modificados en los commit:
+    git log -p -1
+
 En la ruta principal del proyecto
     
     recuperar branch o commit 
