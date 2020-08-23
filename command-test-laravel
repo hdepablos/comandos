@@ -89,3 +89,5 @@
 -- Convertir json response
 $data = $response->decodeResponseJson();
 
+-- ejecutar todos los test y si hay un error detener el proceso
+phpunit --testdox --stop-on-failure
