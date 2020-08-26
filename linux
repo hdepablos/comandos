@@ -1,0 +1,5 @@
+--Ejecutar los procesos que estan colapsando la pc
+top
+
+--Eliminar todos los procesos de vscode 
+pkill code
