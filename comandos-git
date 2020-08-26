@@ -2,6 +2,9 @@ Ver los archivos modificados en los commit:
     git log -p -1
 
 En la ruta principal del proyecto
+
+    Cambiar temporalmente a una confirmación diferente
+        git checkout -b old-state 0d1d7fc32
     
     recuperar branch o commit 
         git fsck --full --no-reflogs | grep commit
