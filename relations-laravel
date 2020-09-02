@@ -91,5 +91,21 @@ $data = $this->terrorist
         $query->select('id', 'name');
     }])->get();
 
-  
+-- Metodos dinamicos metodos magicos
+    -- https://www.youtube.com/watch?v=XwtgZtTTO8A
+-- sub consultas
+    -- https://www.youtube.com/watch?v=GbYIhsNr2CI
+
+-- Diferencia // 
+Empleado.php
+public function nomina()
+    {
+        return $this->belongsTo(Nomina::class,'nomina_id','id'); //ID = el identificador de la tabla de `nominas`
+    }
+Nomina.php
+Y en la tabla `nominas` se pone la función hasOne();
+    public function empleado()
+    {
+        return $this->hasOne(Empleado::class,'nomina_id','id');//ID = el identificador de la tabla de `nominas`
+    }
   
