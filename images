@@ -1,5 +1,7 @@
 Tratamiento de imagenes 
-
+  Editor de imagenes
+    pqina/filepond
+  
   composer require intervention/image
   
   Documentación
