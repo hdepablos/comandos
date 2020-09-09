@@ -4,6 +4,12 @@
 -- https://laravel.com/api/5.8/Illuminate/Database/Eloquent/Builder.html#method_removedScopes
 -- https://laravel-guide.readthedocs.io/en/latest/eloquent-relationships/#querying-relations
 
+Importante para la creación 
+    attach
+Para la actualización
+    sync (Es la combinación perfecta de attach / detach
+Para eliminar la relación
+    detach
 
 -- Data con sus Relaciones
     -- Para que funcione en los modelos deberian de existir
