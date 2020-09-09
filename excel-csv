@@ -1,0 +1,265 @@
+-- Documentación
+  https://www.youtube.com/watch?v=FZZGJ8-0EzU&t=11s
+  https://phpspreadsheet.readthedocs.io/en/latest/search.html?q=format+%40text
+  
+  
+  Date::dateTimeToExcel($user->created_at),
+  
+  
+  <?php
+
+namespace App\Exports;
+
+use App\Loan;
+use App\BranchOfficeBankNacion;
+use App\Services\PaginationService;
+use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use App\Exports\Mappers\LoanExportCasarsaMapper;
+
+class LoanExportCasarsa implements FromQuery, WithMapping, WithHeadings, WithEvents
+{
+    use Exportable;
+
+    private $agenciesBankNacion;
+    private $mapper;
+
+    public function __construct($data)
+    {
+        $this->model = app()
+            ->make(PaginationService::class)
+            ->filter(
+                Loan::with([
+                    'collector',
+                    'lead',
+                    'customer.lastAddress.region',
+                    'status',
+                    'collectionAgency'
+                ]),
+                $data
+            );
+        $this->agenciesBankNacion = BranchOfficeBankNacion::get();
+    }
+
+    public function query()
+    {
+        return $this->model;
+    }
+
+    public function map($loan): array
+    {
+        return (new LoanExportCasarsaMapper($this->agenciesBankNacion, $loan))->map();
+    }
+
+    public function headings(): array
+    {
+        return [
+            [
+                " ", " ", "Cod Tabla", " ", "M / F", "dd/mm/yyyy", "Cod Tabla", " ", " ", " ", " ", " ", "Cod Tabla", "Cod Tabla", "Id Tabla", "Cod Tabla", "Id Tabla", " ", "Id Tabla", "Cod Tabla", "Cod Tabla", "Cod Tabla", "dd/mm/yyyy", "mm/yyyy", " ", " ", " ", "Pos/Neg", "Orden de Pago (TR: Tipo de valor TRPR)", " ", " "
+            ],
+            [
+                'Apellido',
+                'Nombre',
+                'Tipo Doc',
+                'Nro Documento',
+                'Sexo',
+                'Fecha Nac',
+                'Cod Postal',
+                'Domicilio',
+                'Tel particular',
+                'Tel celular',
+                'Tel laboral',
+                'EMAIL',
+                'Comercia',
+                'Empleador',
+                'ID Categoría',
+                'Tipo IVA',
+                'ID ORG',
+                'CBU',
+                'ID Cod Dto',
+                'Linea Cr.',
+                'N de Tabla',
+                'Gestionado',
+                'Fecha Alta',
+                '1er Vto',
+                'Capital',
+                'Importe Cta.',
+                'N Cuotas',
+                'Adicional',
+                'Imp. Efectivo',
+                'Codigo de cuenta',
+                'Imp. Transferencia (TRPR)'
+            ]
+        ];
+    }
+
+    public function registerEvents(): array
+    {
+        $styleArray = [
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            ]
+        ];
+
+        return [
+            AfterSheet::class    => function (AfterSheet $event) use ($styleArray) {
+                $totalRow = $event->sheet->getHighestRow();
+
+                $event->sheet->getDelegate()->mergeCells('AC1:AE1');
+                $event->sheet->getStyle('A1:AE1')->ApplyFromArray($styleArray);
+                $event->sheet->getStyle('A2:AE2')->ApplyFromArray($styleArray);
+
+                $event->sheet->getStyle('C3:C' . $totalRow)
+                    ->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+                $event->sheet->getStyle('Y3:Z' . $totalRow)->getNumberFormat()->setFormatCode('#,##0.00');
+                $event->sheet->getStyle('AA3:AA' . $totalRow)->getNumberFormat();
+                $event->sheet->getStyle('AB3:AC' . $totalRow)->getNumberFormat()->setFormatCode('#,##0.00');
+                $event->sheet->getStyle('X3:X' . $totalRow)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_TEXT);
+                $event->sheet->getStyle('F3:F' . $totalRow)->getNumberFormat()->setFormatCode('DD/MM/YYYY');
+                $event->sheet->getStyle('W3:W' . $totalRow)->getNumberFormat()->setFormatCode('DD/MM/YYYY');
+            },
+        ];
+    }
+}
+
+
+<?php
+
+namespace App\Exports\Mappers;
+
+use Illuminate\Support\Arr;
+
+use App\Helpers\GenerateBankAccountHelper;
+use Carbon\Carbon;
+
+class LoanExportCasarsaMapper
+{
+
+	private $agencies;
+	private $loan;
+	public function __construct($agencies, $loan)
+	{
+		$this->agencies = $agencies;
+		$this->loan = $loan;
+	}
+
+	public function map()
+	{
+		return [
+			Arr::flatten($this->firstRowTransformer()),
+			Arr::flatten($this->secondRowTransformer())
+		];
+	}
+
+	public function firstRowTransformer()
+	{
+		$loan = $this->loan;
+		$cbuCta = $this->getBankAccountNumberByCbu($loan->cbu);
+
+		return [
+			$this->mapCustomerInfo($loan->customer),
+			!is_null($loan->collectionAgency) ? $loan->collectionAgency->code : null,
+			$cbuCta,
+			!is_null($loan->collectionAgency) ? $loan->collectionAgency->loan_fee_code : null,
+			18,
+			18,
+			1,
+			$loan->created_at->format('d/m/Y'),
+			$loan->first_due_date ? $loan->first_due_date->format('m-Y') : null,
+			$loan->capital,
+			$loan->amount - $loan->administrative_cost,
+			$loan->term,
+			$loan->capital / 2,
+			$loan->capital,
+			null,
+			"0"
+		];
+	}
+
+	public function secondRowTransformer()
+	{
+		$loan = $this->loan;
+		$cbuCta = $this->getBankAccountNumberByCbu($loan->cbu);
+
+		return [
+			$this->mapCustomerInfo($loan->customer),
+			!is_null($loan->collectionAgency) ? $loan->collectionAgency->code : null,
+			$cbuCta,
+			!is_null($loan->collectionAgency) ? $loan->collectionAgency->social_fee_code : null,
+			9001,
+			null,
+			1,
+			$loan->created_at->format('d/m/Y'),
+			$loan->first_due_date ? $loan->first_due_date->format('m-Y') : null,
+			$loan->capital,
+			$loan->administrative_cost,
+			$loan->term,
+			null,
+			null,
+			null,
+			"0"
+		];
+	}
+
+	public function mapCustomerInfo($customer)
+	{
+		return [
+			$customer->last_name,
+			$customer->first_name,
+			"05",
+			$customer->unique_identifier,
+			$customer->gender == 1 ? 'm' : 'f',
+			$customer->birthday
+				? Carbon::createFromFormat(
+					'Y-m-d',
+					$customer->birthday
+				)->format('d/m/Y')
+				: null,
+			null,
+			$customer->lastAddress['city'] . ' ' . $customer->lastAddress['address'] . ' ' . $customer->lastAddress['region']['name'],
+			$customer->area . $customer->cellphone,
+			null,
+			null,
+			$customer->email,
+			139,
+			1,
+			10,
+			'C'
+		];
+	}
+
+	public function getBankAccountNumberByCbu($cbu)
+	{
+		$codeBank = substr($cbu, 0, 3);
+		$agency = $this->agencies;
+
+		if ($codeBank == "020") {
+			return GenerateBankAccountHelper::generateBankAccountCordoba($cbu);
+		}
+
+		if ($codeBank != "011") {
+			return $cbu;
+		}
+
+		$codeBcra = substr($cbu, 3, 4);
+		$codeAgency = $agency->where('code_bcra', $codeBcra)->first();
+
+		if (!$codeAgency) {
+			return 'UNDEFINED';
+		}
+
+		return GenerateBankAccountHelper::generateBankAccountNacion($cbu, $codeAgency->code_agency);
+	}
+}
+
+
+
+
+
+  
+  
+  
