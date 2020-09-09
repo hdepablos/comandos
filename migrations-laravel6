@@ -78,6 +78,11 @@ https://github.com/fzaninotto/Faker#fakerprovideren_usaddress
             'email_verified_at' => now(),
             'identity_validated' => random_int(0, 1),
             $faker->unique()->numberBetween(1, 999),
+            $faker->randomElement([1, 22]),
+            $dt = $faker->dateTimeBetween($startDate = '-3 months', $endDate = 'now');
+            $dt = $faker->dateTimeBetween($startDate = '-30 years', $endDate = 'now');
+            $events = $faker->dateTimeBetween('-30 days', '+30 days');
+            $amount = $faker->randomFloat(0, 1, 20000);
 
             -- Id aleatorio de una tabla
             $id => App\Customer::all()->random(1)->first()->id,
