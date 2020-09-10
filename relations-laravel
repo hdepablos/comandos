@@ -114,4 +114,8 @@ Y en la tabla `nominas` se pone la función hasOne();
     {
         return $this->hasOne(Empleado::class,'nomina_id','id');//ID = el identificador de la tabla de `nominas`
     }
+    
+relations
+return $this->hasOne(Provider::class, 'id', 'provider_id');
+return $this->hasMany(VariantProductAtributte::class, 'variant_product_id', 'id')
   
