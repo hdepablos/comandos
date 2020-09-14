@@ -261,5 +261,50 @@ class LoanExportCasarsaMapper
 https://stackoverflow.com/questions/61747099/laravel-phpunit-test-maatwebsite-excel-import
 https://www.youtube.com/watch?v=Q2AUH9w9XaA
   
+===========================================================================================
+===   Para importar
+===========================================================================================
+<?php
+
+namespace App\Imports;
+
+use App\User;
+
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsErrors;
+use Maatwebsite\Excel\Concerns\SkipsOnError;
+
+use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\SkipsFailures;
+use Maatwebsite\Excel\Concerns\SkipsOnFailure;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithValidation;
+
+class UserImport implements ToCollection, WithHeadingRow, SkipsOnError, WithValidation, SkipsOnFailure
+{
+    use Importable, SkipsErrors, SkipsFailures;
+
+    public $data;
+    public function collection(Collection $rows)
+    {
+        $data = $rows->map(function ($item) {
+            $arr["name"] = $item["name"];
+            $arr["email"] = $item["email"];
+            $arr["password"] = bcrypt(12345678);
+            return $arr;
+        });
+        $this->data = $data;
+    }
+
+    public function rules(): array
+    {
+        return [
+            '*.email' => ['email', 'unique:users,email']
+        ];
+    }
+}
+
+  
   
   
