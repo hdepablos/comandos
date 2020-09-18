@@ -118,4 +118,7 @@ Y en la tabla `nominas` se pone la función hasOne();
 relations
 return $this->hasOne(Provider::class, 'id', 'provider_id');
 return $this->hasMany(VariantProductAtributte::class, 'variant_product_id', 'id')
+
+// Multiples sum
+https://laracasts.com/discuss/channels/laravel/how-can-i-query-multiple-sum-from-the-same-table-using-where-condition
   
