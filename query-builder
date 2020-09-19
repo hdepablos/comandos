@@ -1,0 +1,13 @@
+$this->initQueryBuilder(['id', 'name', 'provider_id', 'created_at', 'provider.id']);
+// $allowedIncludes = ['provider', 'description', 'categories', 'variants.variantProductAtributtes.typeAtributte.nameAtributte', 'images'];
+$allowedIncludes = ['provider'];
+$fields = [
+    'id', 'name', 'provider_id', 'is_active', 'created_at', 'updated_at',
+    'provider.id', 'provider.name', 'provider.created_at', 'provider.updated_at',
+    // 'description.product_id', 'description.description',
+    // 'variants.id', 'variants.product_id', 'variants.quantity', 'variants.is_active', 'variants.path_img', 'variants.sku', 'variants.barcode',
+    // 'images.id', 'images.product_id', 'images.path'
+];
+$allowedAppends = [];
+// $this->allowedFilter[] = AllowedFilter::scope('withTotalStock', 'withTotalStock');
+return $this->filter($this->allowedFilter, $allowedIncludes, $fields, [], $allowedAppends);
