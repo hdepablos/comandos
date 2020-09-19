@@ -11,3 +11,14 @@ $fields = [
 $allowedAppends = [];
 // $this->allowedFilter[] = AllowedFilter::scope('withTotalStock', 'withTotalStock');
 return $this->filter($this->allowedFilter, $allowedIncludes, $fields, [], $allowedAppends);
+
+
+$params = '?disablePagination=true';
+        $params = $params . '&include=provider';
+        $params = $params . '&fields[provider]=id,name';
+        // $params = $params . '&filter[id]=1';
+        $params = $params . '&filter[provider.id]=1';
+
+        $url = "http://asbackoffice.vm/api/products/builder${params}";
+        $response = $this->json('GET', $url, [], $this->dataHeader('asback@gmail.com'));
+        dd($response->content());
