@@ -12,7 +12,7 @@
   php artisan db:seed --class=DataTestProccessSeeder
   php artisan make:export UsersExport --model=User
   php artisan make:migration create_users_table --create=users
-  php artisan make:migration add_votes_to_users_table --table=users
+  php artisan make:migration add_column_payment_loaded_to_payment_orders_table --table=payment_orders
   php artisan migrate --path=/database/migrations/my_migration.php
   
 -- Resource
