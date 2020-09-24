@@ -124,3 +124,6 @@ https://reinink.ca/articles/dynamic-relationships-in-laravel-using-subqueries
 
 -- Pasar variables
 -- $query->selectRaw('MATCH(matchy.val) against (?) as relevance ', [$q] )
+
+-- sub consultas
+https://laravel-news.com/eloquent-subquery-enhancements
