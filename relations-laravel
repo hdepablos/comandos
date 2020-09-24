@@ -122,3 +122,5 @@ return $this->hasMany(VariantProductAtributte::class, 'variant_product_id', 'id'
 -- Doc subconsultas 
 https://reinink.ca/articles/dynamic-relationships-in-laravel-using-subqueries
 
+-- Pasar variables
+-- $query->selectRaw('MATCH(matchy.val) against (?) as relevance ', [$q] )
