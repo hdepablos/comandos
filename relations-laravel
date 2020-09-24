@@ -127,3 +127,48 @@ https://reinink.ca/articles/dynamic-relationships-in-laravel-using-subqueries
 
 -- sub consultas
 https://laravel-news.com/eloquent-subquery-enhancements
+https://reinink.ca/articles
+
+-- Calculo de totales en una misma tabla
+https://reinink.ca/articles/calculating-totals-in-laravel-using-conditional-aggregates
+
+$totals = DB::table('subscribers')
+    ->selectRaw('count(*) as total')
+    ->selectRaw("count(case when status = 'confirmed' then 1 end) as confirmed")
+    ->selectRaw("count(case when status = 'unconfirmed' then 1 end) as unconfirmed")
+    ->selectRaw("count(case when status = 'cancelled' then 1 end) as cancelled")
+    ->selectRaw("count(case when status = 'bounced' then 1 end) as bounced")
+    ->first();
+    
+Para las columnas boolean
+$totals = DB::table('subscribers')
+    ->selectRaw('count(*) as total')
+    ->selectRaw('count(is_admin or null) as admins')
+    ->selectRaw('count(is_treasurer or null) as treasurers')
+    ->selectRaw('count(is_editor or null) as editors')
+    ->selectRaw('count(is_manager or null) as managers')
+    ->first();
+    
+Con filter Para postgressql
+$totals = DB::table('subscribers')
+    ->selectRaw('count(*) as total')
+    ->selectRaw('count(*) filter (where is_admin) as admins')
+    ->selectRaw('count(*) filter (where is_treasurer) as treasurers')
+    ->selectRaw('count(*) filter (where is_editor) as editors')
+    ->selectRaw('count(*) filter (where is_manager) as managers')
+    ->first();
+
+
+-- Ordernar relación uno a uno de forma más eficiente
+$users = User::select('users.*')
+    ->join('companies', 'companies.user_id', '=', 'users.id')
+    ->orderBy('companies.name')
+    ->get();
+    
+    
+-- Consultas de mysql en laravel
+https://stitcher.io/blog/eloquent-mysql-views
+https://nullthoughts.com/development/2019/10/08/dynamic-scope-on-latest-relationship-in-laravel/
+https://nullthoughts.com/development/2019/10/09/dynamic-scope-on-latest-relationship-in-laravel-part-2-using-mysql-views/
+
+
