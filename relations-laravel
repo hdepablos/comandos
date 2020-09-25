@@ -171,4 +171,21 @@ https://stitcher.io/blog/eloquent-mysql-views
 https://nullthoughts.com/development/2019/10/08/dynamic-scope-on-latest-relationship-in-laravel/
 https://nullthoughts.com/development/2019/10/09/dynamic-scope-on-latest-relationship-in-laravel-part-2-using-mysql-views/
 
+public function scopeWithPriceCurrent($query)
+{
+        $subSelect = VariantProductPrice::select('price_variant_product.price_id')
+            ->whereColumn([
+                ['price_variant_product.variant_product_id', '=', 'variant_product.id']
+            ])
+            ->latest()
+            ->limit(1);
+        $query->addSelect([
+            'price_id' => $subSelect
+        ]);
+        $query->with('priceCurrent');
+}
+
+-- Eloquent::when(): No More if-elses for Conditional Queries
+https://laraveldaily.com/less-know-way-conditional-queries/
+
 
