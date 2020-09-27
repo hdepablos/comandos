@@ -4,8 +4,10 @@
 -- Command laravel
   composer dump-autoload
   php artisan clear-compiled && php artisan view:clear && php artisan route:clear && php artisan config:cache && php artisan cache:clear && php artisan optimize && php artisan route:cache && php artisan config:clear
-  phpunit --testdox --stop-on-failure
+  sudo docker-compose build
+  docker exec -it blacklist /bin/bash
   alias t="clear && vendor/bin/phpunit --filter"
+  phpunit --testdox --stop-on-failure
   php artisan make:controller ItemController --resource --model=Item
   php artisan make:request UpdatePostFormRequest
   php artisan make:model Models/BlackList
