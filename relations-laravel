@@ -191,3 +191,10 @@ public function scopeWithPriceCurrent($query)
 https://laraveldaily.com/less-know-way-conditional-queries/
 
 
+https://stackoverflow.com/questions/16815551/how-to-do-this-in-laravel-subquery-where-in
+Products::whereIn('id', function($query){
+    $query->select('paper_type_id')
+    ->from(with(new ProductCategory)->getTable())
+    ->whereIn('category_id', ['223', '15'])
+    ->where('active', 1);
+})->get();
