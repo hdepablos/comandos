@@ -4,6 +4,8 @@
 -- https://laravel.com/api/5.8/Illuminate/Database/Eloquent/Builder.html#method_removedScopes
 -- https://laravel-guide.readthedocs.io/en/latest/eloquent-relationships/#querying-relations
 
+
+-- https://www.amitmerchant.com/attach-detach-sync-laravel/
 Importante para la creación 
     attach
 Para la actualización
