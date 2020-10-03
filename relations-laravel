@@ -198,3 +198,13 @@ Products::whereIn('id', function($query){
     ->whereIn('category_id', ['223', '15'])
     ->where('active', 1);
 })->get();
+
+-- Active
+return $amount = $this->amount
+    ->where('is_active', 1)
+    ->where('starts_at', '<=', $this->now)
+    ->where(function ($query) {
+        $query->where('end_at', '<=', $this->now);
+        $query->orWhereNull('end_at');
+    })
+    ->get();
