@@ -11,3 +11,44 @@ $products = DB::table('products')
                     ['offer_price', '=', 'main_price'],
                     ['updated_at', '>', 'created_at']
                 ])->get();
+
+-- Consultas de mysql en laravel
+https://stitcher.io/blog/eloquent-mysql-views
+https://nullthoughts.com/development/2019/10/08/dynamic-scope-on-latest-relationship-in-laravel/
+https://nullthoughts.com/development/2019/10/09/dynamic-scope-on-latest-relationship-in-laravel-part-2-using-mysql-views/
+
+public function scopeWithPriceCurrent($query)
+{
+        $subSelect = VariantProductPrice::select('price_variant_product.price_id')
+            ->whereColumn([
+                ['price_variant_product.variant_product_id', '=', 'variant_product.id']
+            ])
+            ->latest()
+            ->limit(1);
+        $query->addSelect([
+            'price_id' => $subSelect
+        ]);
+        $query->with('priceCurrent');
+}
+
+-- Eloquent::when(): No More if-elses for Conditional Queries
+https://laraveldaily.com/less-know-way-conditional-queries/
+
+
+https://stackoverflow.com/questions/16815551/how-to-do-this-in-laravel-subquery-where-in
+Products::whereIn('id', function($query){
+    $query->select('paper_type_id')
+    ->from(with(new ProductCategory)->getTable())
+    ->whereIn('category_id', ['223', '15'])
+    ->where('active', 1);
+})->get();
+
+-- Active
+return $amount = $this->amount
+    ->where('is_active', 1)
+    ->where('starts_at', '<=', $this->now)
+    ->where(function ($query) {
+        $query->where('end_at', '<=', $this->now);
+        $query->orWhereNull('end_at');
+    })
+    ->get();
