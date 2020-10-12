@@ -12,6 +12,7 @@
   php artisan make:request UpdatePostFormRequest
   php artisan make:model Models/BlackList
   php artisan make:factory CategoriaFactory --model=Categoria
+  factory(App\Lead::class, 100)->create();
   php artisan make:seeder UserSeeder
   php artisan db:seed --class=DataTestProccessSeeder
   php artisan make:export UsersExport --model=User
