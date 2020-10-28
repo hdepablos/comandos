@@ -22,3 +22,6 @@ $params = '?disablePagination=true';
         $url = "http://asbackoffice.vm/api/products/builder${params}";
         $response = $this->json('GET', $url, [], $this->dataHeader('asback@gmail.com'));
         dd($response->content());
+
+-- Test
+https://github.com/spatie/laravel-query-builder/blob/8a723a26b80f1095d115fe42091e82183379a5ff/tests/SortTest.php#L90-L103
