@@ -71,6 +71,8 @@ Crear y activa una imagen de docker con postgres
     docker rm f
     docker rmi ee
   
+log
+    docker-compose logs -f
   
  
  
