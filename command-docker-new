@@ -1,6 +1,17 @@
 -- Instalar docker linux
   https://www.programadornovato.com/2019/02/instalar-docker-en-ubuntu-18.html
 
+-- log
+  docker-compose logs -f
+-- Los sevicios que se estan ejecuando
+  docker-compose ps
+-- Si se modifica el dockerfile se deve compilar el servicio
+  docker-compose --build
+-- Ver las redes activas
+  docker network ls
+  detalle de la red
+    docker network inspect 3-primero-digitos-id  
+  
 -- Para inicializar el proxy
   /var/www$ cd ngnix-proxy/
   sudo docker-compose up -d
