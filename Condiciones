@@ -1,3 +1,10 @@
+DB::connection("YOUR_CONNECTION_NAME")
+    ->table("cart")
+    ->where('cart_id', 9)
+    ->update([
+        "cart_price" => DB::raw('(select sum(total_price) from cart_items where cart_id=9)')
+    ]);
+
 $products = DB::table('products')
                 ->whereColumn('offer_price', 'main_price')
                 ->get();
