@@ -1,3 +1,5 @@
+docker-compose run web env
+
 SSH Keys
     https://devqa.io/install-git-mac-generate-ssh-keys/
 
