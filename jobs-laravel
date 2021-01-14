@@ -1,0 +1,11 @@
+Ejecutar:
+  php artisan queue:table
+  php artisan migrate
+  
+  php artisan queue:work
+  
+Configurara la variable de entorno:
+    QUEUE_CONNECTION=database
+            aws = sqs
+            
+            
