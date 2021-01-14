@@ -1,2 +1,6 @@
 Documentation
   https://github.com/Maatwebsite/laravel-excel-docs/blob/master/3.1/imports/validation.md#gathering-all-failures-at-the-end
+  
+
+Cláusula groupBy, necesitaba implementar un tamaño de consulta personalizado
+  https://stackoverflow.com/questions/59365972/laravel-excel-queued-export-isnt-creating-jobs
