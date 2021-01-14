@@ -1,0 +1,19 @@
+novedades app
+  mutual migrations
+      2020_10_20_232514_alter_offer_file_renovator_contents_table
+        Schema::table('offer_file_renovator_contents', function (Blueprint $table) {
+            $table->renameColumn('seller_id', 'branch_id')->nullable()->change();
+        });
+
+        Schema::table('offer_file_renovator_contents', function (Blueprint $table) {
+            $table->integer('bank_id')->nullable()->change();
+        });
+
+        Schema::table('offer_file_renovator_contents', function (Blueprint $table) {
+            $table->renameColumn('debit', 'had_debts');
+        });
+        
+        
+  backoffice
+    factory BankAccount()
+      company_id
