@@ -8,3 +8,5 @@
 // Transferir file
 // Storage::disk('local')->writeStream('download_rapi_pago/4520G1801.zip', Storage::readStream('download_rapi_pago/4520G1801.zip'));
 // dd("Copio");
+
+https://styde.net/laravel-6-doc-almacenamiento-de-archivos/
