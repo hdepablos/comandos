@@ -1,0 +1,10 @@
+// Consultar files
+// $files = Storage::disk('s3')->allFiles();
+// dd($files);
+
+// Storage::disk('s3')->delete(['RP010820.4520', 'download_rapi_pago/4520G101.zip', 'download_rapi_pago', 'my-directory/myfile.zip', 'download_rapi_pago/PAG0108202001.4520', 'my-directory/4520G101.zip']);
+// dd("Elimino el file.zip");
+
+// Transferir file
+// Storage::disk('local')->writeStream('download_rapi_pago/4520G1801.zip', Storage::readStream('download_rapi_pago/4520G1801.zip'));
+// dd("Copio");
