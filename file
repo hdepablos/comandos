@@ -10,3 +10,35 @@
 // dd("Copio");
 
 https://styde.net/laravel-6-doc-almacenamiento-de-archivos/
+
+Lineas hechas para subir un archivo a S3
+
+Configuracion del ambiente
+
+ADVENTENCIA: Configurar bien la cosa (WEA) de los permisos
+
+1.- configurar laravel project
+AWS_ACCESS_KEY_ID=AKI******
+AWS_SECRET_ACCESS_KEY=W+TsaFs2NJTb********
+AWS_DEFAULT_REGION=us-west-2
+AWS_BUCKET=accele******
+AWS_URL=arn:aws:s3:::*******
+
+2.- Ver archivos a S3
+\Storage::disk('s3')->files(); // Obtener informacion dentro del s3 dentro de file puede ir el directorio
+\Storage::disk('s3')->files($directorioS3);
+
+3.- Subir Archivo a S3
+$s3-> \Storage::disk('s3');
+$filePath = 'directorio_de_archivo_a_subir+formato';
+$s3->put('acct-filesdh/'.nombrearchivo.'.xlsx',file_get_contents($filePath));
+
+4.- Descargar Archivo e S3
+$disk = \Storage::disk('s3');
+$sourceFile = 'url_amazon_file.xlsx';
+$stream= $disk->getDriver()->readStream($sourceFile);
+
+//Guardar en disco, buscar forma dinamica.
+file_put_contents('Directorio pc donde descargar', stream_get_contents($stream), FILE_APPEND);
+
+composer require league/flysystem-aws-s3-v3
