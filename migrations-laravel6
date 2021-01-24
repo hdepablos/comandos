@@ -94,6 +94,9 @@ https://github.com/fzaninotto/Faker#fakerprovideren_usaddress
             $gender = random_int(0, 1); // Genero
             $unique_identifier = (($gender) ? "20" : "27") .  $identification_number . (($gender) ? "2" : "3");
             
+            -- Numeros largos
+            $numero = $faker->numerify('################################################');
+            
             -- Fecha de nacimiento de un año especifico
             $year = rand(1998, 2000);
             $month = rand(1, 12);
