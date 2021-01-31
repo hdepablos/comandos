@@ -7,3 +7,16 @@ doc:
   
   https://stackoverflow.com/questions/45093582/laravel-how-to-transfer-file-from-local-public-to-ftp-using-laravel
   
+  // Consultar files
+  $files = Storage::disk('tmp')->allFiles();
+  dd($files);
+
+  // Storage::disk('s3')->delete(['RP010820.4520', 'download_rapi_pago/4520G101.zip', 'download_rapi_pago', 'my-directory/myfile.zip', 'download_rapi_pago/PAG0108202001.4520', 'my-directory/4520G101.zip']);
+  // Storage::disk('tmp')->delete(["4520G2501.zip"]);
+  // dd("Elimino el file.zip");
+
+  // Transferir file
+  Storage::disk('s3')->writeStream('download_rapi_pago/funding.xlsx', Storage::disk('local')->readStream('funding.xlsx'));
+  Storage::disk('local')->writeStream('download_rapi_pago/4520G1801.zip', Storage::readStream('download_rapi_pago/4520G1801.zip'));
+  dd("Copio");
+  
