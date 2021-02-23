@@ -2,7 +2,7 @@
   php artisan serve
   
 -- Command laravel
-  pa make:controller Admin/LoanRequestController -r --api --model=Moldels/LoanRequest
+  pa make:controller Admin/LoanRequestController -r --api --model=Models/LoanRequest
   composer dump-autoload
   composer update --no-scripts
   php artisan clear-compiled && php artisan view:clear && php artisan route:clear && php artisan config:cache && php artisan cache:clear && php artisan optimize && php artisan route:cache && php artisan config:clear
