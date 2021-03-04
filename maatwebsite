@@ -8,3 +8,6 @@ Documentation
 
 Cláusula groupBy, necesitaba implementar un tamaño de consulta personalizado
   https://stackoverflow.com/questions/59365972/laravel-excel-queued-export-isnt-creating-jobs
+  
+Export 
+  https://aaronfrancis.com/2020/large-csvs-with-laravel
