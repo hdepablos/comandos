@@ -1,3 +1,7 @@
+add: File to last commit
+    git add the_left_out_file
+    git commit --amend --no-edit
+
 docker-compose run web env
 
 SSH Keys
