@@ -1,0 +1,37 @@
+Crear el factory:
+    <?php
+
+    /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+    use App\Region;
+    use App\Customer;
+    use App\CustomerAddress;
+    use Faker\Generator as Faker;
+
+    $factory->define(CustomerAddress::class, function (Faker $faker) {
+        return [
+            'customer_id' => App\Customer::all()->random(1)->first()->id,
+            'region_id' => App\Region::all()->random(1)->first()->id,
+            'city' => $faker->sentence(4),
+            'address' => $faker->address
+        ];
+    });
+
+Agregar en el archivo CustomerFactory.php
+    Al final del archivo agregar:
+        $factory->afterCreating(App\Customer::class, function ($data, $faker) {
+            $data->addresses()->saveMany(factory(App\CustomerAddress::class, 2)->make(['customer_id' => $data->id]));
+        });
+
+En el archivo DatabaseSeeder
+    comentar la linea 12
+        $this->call(BranchsBankPatagoniaSeeder::class);
+
+Ejecutar:
+    php artisan migrate:refresh --seed
+
+    php artisan tinker
+        factory(\App\BankAccount::class, 30)->create();
+        factory(\App\Loan::class, 3000)->create();
+        php artisan db:seed --class=LoanInstallmentSeeder
+        php artisan db:seed --class=NewOperatorSeeder
