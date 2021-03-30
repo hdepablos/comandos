@@ -33,5 +33,6 @@ Ejecutar:
     php artisan tinker
         factory(\App\BankAccount::class, 30)->create();
         factory(\App\Loan::class, 3000)->create();
-        php artisan db:seed --class=LoanInstallmentSeeder
-        php artisan db:seed --class=NewOperatorSeeder
+        
+    php artisan db:seed --class=LoanInstallmentSeeder
+    php artisan db:seed --class=NewOperatorSeeder
