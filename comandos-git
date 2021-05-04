@@ -1,3 +1,6 @@
+elimnar imagenes container sin utilizar
+    docker system prune
+
 add: File to last commit
     git add the_left_out_file
     git commit --amend --no-edit
