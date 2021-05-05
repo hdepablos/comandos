@@ -1,0 +1,15 @@
+Instalar vue-cli
+  sudo npm install -g @vue/cli
+  vue create name-component
+  cd name-component
+  
+  npm run serve
+  sudo npm install -g vue-sfc-rollup
+  sfc-init
+    vue-name-component
+    
+  Dentro del proyecto se crea un carpeta con el nombre del componente cual es la que vamos a subir al github
+    cd vue-name-component
+  
+  
+  
