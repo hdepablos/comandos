@@ -1,3 +1,6 @@
+elimnar imagenes container sin utilizar
+    docker system prune
+
 ## Start command ##
 systemctl start apache2.service
 ## Stop command ##
