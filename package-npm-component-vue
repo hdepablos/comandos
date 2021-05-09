@@ -8,11 +8,13 @@ Instalar vue-cli
   sfc-init
     vue-name-component
     
-  Dentro del proyecto se crea un carpeta con el nombre del componente cual es la que vamos a subir al github
+  Dentro del proyecto se crea un carpeta con el nombre del componente
     cd vue-name-component
     npm i
     npm run build
     npm run serve
     
+ Nota: Si da un error de limit ejecutar
+    sudo echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
   
   
