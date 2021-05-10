@@ -18,3 +18,18 @@ Instalar vue-cli
     sudo echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
   
   
+ Crear un archivo en la raiz del proyecto del componente:
+  .npmrm
+    registry=https://npm.pkg.github.com/World-Tech
+    //npm.pkg.github.com/:_authToken=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         -- El token es generado en:
+                                                                                          Perfil + settingns + develop settings + Personal access token + creart token
+                                                                                            repo
+                                                                                            write:packages
+                                                                                            delete:packages
+                                                                                            copiar el token
+
+ Agregar al final del archivo package.json
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
+  "repository":"https://github.com/World-Tech/heartui-tables"       -- ruta del repository
