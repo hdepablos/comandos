@@ -36,3 +36,14 @@ Ejecutar:
         
     php artisan db:seed --class=LoanInstallmentSeeder
     php artisan db:seed --class=NewOperatorSeeder
+    
+    
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    payments
+    factory(App\Models\BankAccount::class, 50)->create();
+    factory(App\Models\Branch::class, 70)->create();
+    factory(App\Models\PaymentOrder::class, 70)->create();
+    
+    
+    
