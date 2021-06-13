@@ -1,4 +1,7 @@
-Eliminar  
+Validation user git
+    ssh -T git@github.com
+    
+Eliminar
     git remote remove name-origin
 
 add: File to last commit
