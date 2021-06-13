@@ -1,3 +1,51 @@
+=============================================================================================
+=============================================================================================
+Multiple user
+    generar la clave por cada usuario:
+        ssh-keygen -t rsa -b 4096 -C "user-email@gmail.com"
+            add: identificación del rsa por cada usuario
+    copiamos la clave publica por cada usuario:
+        car file-name.pub
+    pegamos en: logo + settings + SSH and GPG keys + new ssh keys
+    
+    cd /home/hd/.ssh
+        code config
+            Por cada cuenta
+                # Personal account - default config	
+                Host github.com-hdepablos
+                    HostName github.com
+                    User git
+                    IdentifyFile ~/.ssh/id_rsa
+                
+                Host github.com-hdcorreophp
+                    HostName github.com
+                    User git
+                    IdentifyFile ~/.ssh/ceb_v1
+
+    edit
+        nano ~/.gitconfig
+            [user]
+                name = hdepablos
+                email = depabloshector@gmail.com
+            [includeIf "gitdir:~/work/"]
+                path = ~/work/.config
+    
+    created
+        mkdir work 
+        nano ~/work/.gitconfig
+            [user]
+                name = hdepablos
+                email = depabloshector@gmail.com
+
+    cd /home/hd/.ssh
+        ssh-add -D
+        ssh-add id_rsa
+        ssh-add ceb_v1
+        ssh-add -l
+
+=============================================================================================
+=============================================================================================
+
 Validation user git
     ssh -T git@github.com
     
