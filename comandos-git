@@ -1,5 +1,8 @@
 =============================================================================================
 =============================================================================================
+Doc 
+    https://www.youtube.com/watch?v=fnSRBRiQIU8&t=208s
+
 Multiple user
     generar la clave por cada usuario:
         ssh-keygen -t rsa -b 4096 -C "user-email@gmail.com"
@@ -42,6 +45,14 @@ Multiple user
         ssh-add id_rsa
         ssh-add ceb_v1
         ssh-add -l
+        
+        
+    Validation user git
+        ssh -T github.com-hdepablos
+        ssh -T github.com-hdcorreophp
+        
+    git push origin 
+        git remote add origin git@github.com-hdcorreophp:hdcorreophp/ceb.git
 
 =============================================================================================
 =============================================================================================
