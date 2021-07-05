@@ -13,3 +13,6 @@
 
 -- Create usuario
     GRANT ALL ON ceb.* TO 'ceb'@'localhost' IDENTIFIED BY '' WITH GRANT OPTION;
+    
+-- eliminar acceso a root
+    https://comoinstalar.me/como-instalar-mariadb-en-ubuntu-20-04-lts/
