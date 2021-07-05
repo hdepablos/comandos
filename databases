@@ -9,3 +9,7 @@
 
 
     CREATE DATABASE alumnos;
+
+
+-- Create usuario
+    GRANT ALL ON ceb.* TO 'ceb'@'localhost' IDENTIFIED BY '' WITH GRANT OPTION;
