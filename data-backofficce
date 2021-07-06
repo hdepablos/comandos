@@ -46,4 +46,11 @@ Ejecutar:
     factory(App\Models\PaymentOrder::class, 70)->create();
     
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Branches cuando se realiza migrate refresh da un error donde el campos email no null, en el seeeder NewUserSeeder cuando crea el user
+    agregar
+    "email" => "mutual@libgot.com",
+    
+    
+    
     
