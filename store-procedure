@@ -1,0 +1,8 @@
+DELIMITER $$  
+CREATE PROCEDURE `Example`(table_name VARCHAR(32))  
+BEGIN  
+    set @sql = concat("SELECT * FROM ", table_name);
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+END$$;  
+DELIMITER ;  
