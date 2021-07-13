@@ -41,6 +41,12 @@ Ejecutar:
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     payments
+        INSERT INTO payments.rapi_pago_accounts
+        (id, entity_code, is_active, created_at, updated_at)
+        VALUES(1, '4520', 1, '2021-07-12 22:44:55.000', '2021-07-12 22:45:04.000');
+        
+        
+    
     factory(App\Models\BankAccount::class, 50)->create();
     factory(App\Models\Branch::class, 70)->create();
     factory(App\Models\PaymentOrder::class, 70)->create();
