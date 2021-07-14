@@ -37,6 +37,10 @@ Ejecutar:
     php artisan db:seed --class=LoanInstallmentSeeder
     php artisan db:seed --class=NewOperatorSeeder
     
+    php artisan tin
+        factory(App\OfferFile::class, 1)->create();
+        factory(App\OfferFileContent::class, 10)->create();
+    
     
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
