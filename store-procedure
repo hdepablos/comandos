@@ -5,4 +5,8 @@ BEGIN
     PREPARE stmt FROM @sql;
     EXECUTE stmt;
 END$$;  
-DELIMITER ;  
+DELIMITER ;
+
+
+-- Con bash
+https://kedar.nitty-witty.com/blog/using-load-data-infile-with-stored-procedure-workaround-mysql
