@@ -69,5 +69,5 @@ Ejecutar:
         
         php artisan tin
             factory(App\Models\Branch::class, 80)->create();
-        
+            factory(App\Models\EmployerGroup::class, 5)->create();
         
