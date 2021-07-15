@@ -61,6 +61,13 @@ Ejecutar:
     agregar
     "email" => "mutual@libgot.com",
     
-    
-    
-    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    risk
+        php artisan db:seed --class=EmployerGroupSeeder
+        php artisan db:seed --class=BankSeeder
+        php artisan db:seed --class=ConfigMutualRuleSeeder
+        
+        php artisan tin
+            factory(App\Models\Branch::class, 80)->create();
+        
+        
