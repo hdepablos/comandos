@@ -1,3 +1,9 @@
+rm -rf .git
+git remote remove name-origin
+git reset --soft HEAD~1 
+git commit --amend
+git push origin --delete <NombreRama>
+
 =============================================================================================
 =============================================================================================
 Claves para servidores
@@ -119,7 +125,7 @@ En la ruta principal del proyecto
     Si es el último commit  puedes editar el mensaje del commit y a la vez incluir, excluir algun file
         git commit --amend
 
-    Si no es el último commit y quieres modificar solo el mensje del commit 
+    Si no es el último commit y quieres modificar solo el mensaje del commit 
         git rebase -i HEAD~4
             Cambiar pick por reword. Guardar el file, y reescribir el mensaje. y guardar file
             Para forzar la subida al repositorio
